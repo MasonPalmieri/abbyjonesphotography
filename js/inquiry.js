@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  const PLACEHOLDER = 'REPLACE_WITH_FORMSPREE_ENDPOINT';
+  const PLACEHOLDER = 'REPLACE_WITH_FORM_ENDPOINT';
 
   async function getEndpoint() {
     try {
@@ -52,6 +52,11 @@
     const fd = new FormData(form);
     const payload = {};
     fd.forEach((v, k) => { if (!k.startsWith('_')) payload[k] = v; });
+
+    // FormSubmit convenience fields (safe no-op if the endpoint isn't FormSubmit)
+    payload._subject = 'New inquiry from ' + (payload.name || 'your website');
+    payload._template = 'table';
+    payload._captcha = 'false';
 
     try {
       const res = await fetch(endpoint, {
