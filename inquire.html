@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inquire — Abby Jones Photography</title>
+  <meta name="description" content="Start an inquiry with Abby Jones — wedding, couples, and family photography in Buffalo, Germany, and worldwide.">
+  <link rel="canonical" href="https://abbyjonesphotography.com/inquire.html">
+  <meta property="og:title" content="Inquire — Abby Jones Photography">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <nav class="nav nav--solid" data-partial="nav"></nav>
+
+  <section class="section inquire">
+    <div class="container">
+      <div class="inquire__grid">
+        <div class="inquire__intro">
+          <p class="section__label reveal">Inquiries</p>
+          <h1 class="section__title reveal">Let's tell <em>your story.</em></h1>
+          <p class="reveal">Fill out a few details and I'll respond within 48 hours with more information, availability, and a full pricing guide.</p>
+          <p class="reveal">No detail is too small — the more you share, the better I can tailor a proposal to fit the day you're planning.</p>
+          <div class="inquire__detail reveal">
+            <div>
+              <span class="inquire__detail-label">Email directly</span>
+              <span class="inquire__detail-value"><a href="mailto:hello@abbyjonesphotography.com">hello@abbyjonesphotography.com</a></span>
+            </div>
+            <div>
+              <span class="inquire__detail-label">Instagram</span>
+              <span class="inquire__detail-value"><a href="https://instagram.com/abbyjonesphotography" target="_blank" rel="noopener noreferrer">@abbyjonesphotography</a></span>
+            </div>
+            <div>
+              <span class="inquire__detail-label">Now Booking</span>
+              <span class="inquire__detail-value">2026 — 2027</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="form reveal" data-inquiry data-fallback-email="hello@abbyjonesphotography.com" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="f-name">Name</label>
+              <input class="form__input" id="f-name" name="name" required autocomplete="name">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="f-email">Email</label>
+              <input class="form__input" id="f-email" name="email" type="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="f-phone">Phone (optional)</label>
+              <input class="form__input" id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="f-type">Session type</label>
+              <select class="form__select" id="f-type" name="session_type" required>
+                <option value="">Select one…</option>
+                <option>Wedding</option>
+                <option>Engagement</option>
+                <option>Couples</option>
+                <option>Family</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="f-date">Event date (or "flexible")</label>
+              <input class="form__input" id="f-date" name="event_date" placeholder="e.g. June 14, 2027 or Spring 2027">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="f-location">Location</label>
+              <input class="form__input" id="f-location" name="location" placeholder="City, state, or venue">
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="f-hear">How did you hear about me?</label>
+              <select class="form__select" id="f-hear" name="referral_source">
+                <option value="">Select one…</option>
+                <option>Instagram</option>
+                <option>Google</option>
+                <option>Referral from a friend</option>
+                <option>Vendor referral</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="f-budget">Budget range (optional)</label>
+              <select class="form__select" id="f-budget" name="budget_range">
+                <option value="">Prefer not to say</option>
+                <option>Still figuring it out</option>
+                <option>Under $3,000</option>
+                <option>$3,000 – $5,000</option>
+                <option>$5,000 – $8,000</option>
+                <option>$8,000+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form__row form__row--single">
+            <div class="form__field">
+              <label class="form__label" for="f-message">Tell me about your day</label>
+              <textarea class="form__textarea" id="f-message" name="message" rows="6" placeholder="Anything you'd like me to know — the story so far, the vibe you're going for, questions on your mind…"></textarea>
+              <span class="form__hint">The more you share, the better I can tailor my response.</span>
+            </div>
+          </div>
+
+          <!-- Honeypot -->
+          <div class="form__honey" aria-hidden="true">
+            <label>Do not fill this out: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          </div>
+
+          <button type="submit" class="form__submit">Send inquiry</button>
+          <div class="form__status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" data-partial="footer"></footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/inquiry.js"></script>
+</body>
+</html>

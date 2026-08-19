@@ -1,0 +1,226 @@
+# Sveltia CMS configuration for Abby Jones Photography
+# Docs: https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: MasonPalmieri/abbyjonesphotography
+  branch: main
+  # Sveltia CMS supports Personal Access Token auth directly — no OAuth proxy needed.
+  # Abby will click "Sign in with GitHub (PAT)" and paste a token.
+
+site_url: https://abbyjonesphotography.com
+display_url: https://abbyjonesphotography.com
+logo_url: /assets/site/abby-portrait.jpg
+
+media_folder: assets/galleries
+public_folder: /assets/galleries
+
+# Show a friendly editorial workflow (drafts) — Abby's edits become PRs she can review
+publish_mode: simple
+
+collections:
+  # ============================================================
+  # GALLERIES — Abby's primary self-serve editing area
+  # ============================================================
+  - name: galleries
+    label: Galleries
+    label_singular: Gallery
+    description: >
+      Add, remove, and reorder photos in each gallery. Drag images to reorder.
+      Mark up to 6 as "Featured" to surface on the home page.
+    files:
+      - name: weddings
+        label: Weddings
+        file: data/galleries/weddings.json
+        format: json
+        preview_path: galleries/weddings.html
+        fields:
+          - { name: slug, label: Slug, widget: hidden, default: weddings }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: cover, label: Cover image (used on Galleries index), widget: image, required: false }
+          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/weddings' }
+              - { name: alt, label: Alt text (describe the photo for SEO + accessibility), widget: string }
+              - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
+              - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
+
+      - name: couples
+        label: Couples
+        file: data/galleries/couples.json
+        format: json
+        preview_path: galleries/couples.html
+        fields:
+          - { name: slug, label: Slug, widget: hidden, default: couples }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: cover, label: Cover image, widget: image, required: false }
+          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
+          - name: images
+            label: Photos
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/couples' }
+              - { name: alt, label: Alt text, widget: string }
+              - { name: caption, label: Caption, widget: string, required: false }
+              - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
+
+      - name: families
+        label: Families
+        file: data/galleries/families.json
+        format: json
+        preview_path: galleries/families.html
+        fields:
+          - { name: slug, label: Slug, widget: hidden, default: families }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: cover, label: Cover image, widget: image, required: false }
+          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
+          - name: images
+            label: Photos
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/families' }
+              - { name: alt, label: Alt text, widget: string }
+              - { name: caption, label: Caption, widget: string, required: false }
+              - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
+
+  # ============================================================
+  # SITE SETTINGS — top-level knobs
+  # ============================================================
+  - name: settings
+    label: Site Settings
+    files:
+      - name: site
+        label: General
+        file: data/site.json
+        format: json
+        fields:
+          - { name: siteName, label: Site name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: email, label: Contact email, widget: string }
+          - { name: instagramHandle, label: Instagram handle (no @), widget: string }
+          - { name: instagramUrl, label: Instagram URL, widget: string }
+          - { name: bookingYears, label: Booking years text, widget: string, hint: 'e.g. "2026 — 2027"' }
+          - { name: primaryLocation, label: Primary location, widget: string }
+          - { name: secondaryLocation, label: Secondary location, widget: string }
+          - { name: serviceArea, label: Service area, widget: string }
+          - { name: formEndpoint, label: Inquiry form endpoint (Formspree URL), widget: string, required: false, hint: 'Paste your Formspree endpoint here to activate the inquiry form.' }
+          - name: socialProof
+            label: Social proof
+            widget: object
+            fields:
+              - { name: showTestimonials, label: Show testimonials section?, widget: boolean, default: true }
+              - { name: testimonialsComingSoon, label: Show "coming soon" placeholder?, widget: boolean, default: true }
+
+      - name: about
+        label: About Page
+        file: data/about.json
+        format: json
+        fields:
+          - { name: portrait, label: Portrait image, widget: image }
+          - { name: portraitAlt, label: Portrait alt text, widget: string }
+          - { name: headline, label: Headline, widget: string }
+          - { name: lead, label: Lead paragraph, widget: text }
+          - { name: body, label: Body paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+          - name: locations
+            label: Location badges
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: value, label: Value, widget: string }
+
+  # ============================================================
+  # PRICING
+  # ============================================================
+  - name: pricing
+    label: Pricing
+    files:
+      - name: pricing
+        label: Pricing tiers & add-ons
+        file: data/pricing.json
+        format: json
+        fields:
+          - name: mode
+            label: Pricing display mode
+            widget: select
+            options:
+              - { label: 'Inquire for pricing', value: inquire }
+              - { label: 'Coming soon', value: coming_soon }
+              - { label: 'Public (show prices)', value: public }
+            default: inquire
+          - { name: intro, label: Intro paragraph, widget: text }
+          - name: tiers
+            label: Tiers
+            widget: list
+            summary: '{{fields.name}}'
+            fields:
+              - { name: label, label: Tier label (e.g. "Tier 01"), widget: string, required: false }
+              - { name: name, label: Tier name, widget: string }
+              - { name: price, label: Price (leave blank for "inquire"), widget: string, required: false }
+              - { name: priceNote, label: Price note, widget: string, required: false }
+              - { name: featured, label: Featured tier?, widget: boolean, default: false, required: false }
+              - { name: description, label: Description, widget: text, required: false }
+              - { name: includes, label: Included items, widget: list, field: { name: item, label: Item, widget: string } }
+          - name: addons
+            label: Add-ons
+            widget: list
+            summary: '{{fields.name}}'
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: price, label: Price (e.g. "Inquire" or "$450"), widget: string, required: false }
+
+  # ============================================================
+  # TESTIMONIALS — coming soon by default, but Abby can add as she collects them
+  # ============================================================
+  - name: testimonials
+    label: Testimonials
+    files:
+      - name: testimonials
+        label: Testimonials
+        file: data/testimonials.json
+        format: json
+        fields:
+          - { name: comingSoon, label: Show "coming soon" placeholder?, widget: boolean, default: true }
+          - { name: comingSoonMessage, label: Coming-soon message, widget: string, required: false }
+          - name: items
+            label: Testimonials
+            widget: list
+            summary: '{{fields.author}}'
+            fields:
+              - { name: quote, label: Quote, widget: text }
+              - { name: author, label: Author (e.g. "Sarah + Ben, 2026"), widget: string }
+              - { name: sessionType, label: Session type, widget: string, required: false }
+
+  # ============================================================
+  # BLOG / JOURNAL — coming soon
+  # ============================================================
+  - name: blog
+    label: Journal
+    files:
+      - name: blog
+        label: Journal settings
+        file: data/blog.json
+        format: json
+        fields:
+          - { name: comingSoon, label: Coming soon mode?, widget: boolean, default: true }
+          - name: posts
+            label: Posts (when ready)
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: slug, label: URL slug, widget: string }
+              - { name: date, label: Date, widget: datetime }
+              - { name: cover, label: Cover image, widget: image, required: false }
+              - { name: excerpt, label: Excerpt, widget: text, required: false }
+              - { name: body, label: Post body (Markdown), widget: markdown }

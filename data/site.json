@@ -1,0 +1,16 @@
+{
+  "siteName": "Abby Jones Photography",
+  "tagline": "Wedding, couples, and family photography. Buffalo + worldwide.",
+  "email": "hello@abbyjonesphotography.com",
+  "instagramHandle": "abbyjonesphotography",
+  "instagramUrl": "https://instagram.com/abbyjonesphotography",
+  "bookingYears": "2026 — 2027",
+  "primaryLocation": "Buffalo, NY",
+  "secondaryLocation": "Germany",
+  "serviceArea": "Worldwide",
+  "formEndpoint": "REPLACE_WITH_FORMSPREE_ENDPOINT",
+  "socialProof": {
+    "showTestimonials": true,
+    "testimonialsComingSoon": true
+  }
+}

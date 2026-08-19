@@ -1,0 +1,10 @@
+{
+  "slug": "families",
+  "title": "Families",
+  "subtitle": "In-home, in-backyard, or wherever your story is happening right now — for new babies, growing families, and the chapters worth holding onto.",
+  "cover": "/assets/galleries/families/mom-baby.jpg",
+  "emptyMessage": "New family sessions will be added here soon.",
+  "images": [
+    { "src": "/assets/galleries/families/mom-baby.jpg", "alt": "Mother and baby in a tender family portrait", "featured": true }
+  ]
+}

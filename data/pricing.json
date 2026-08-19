@@ -1,0 +1,82 @@
+{
+  "mode": "inquire",
+  "intro": "Every wedding, session, and story is different — pricing is tailored to match. Reach out with a few details and I'll send a full guide within 48 hours.",
+  "tiers": [
+    {
+      "label": "Tier 01",
+      "name": "The Intimate",
+      "price": "",
+      "description": "Small weddings, elopements, and courthouse-to-dinner days. Perfect for couples focused on the ceremony and the people closest to them.",
+      "includes": [
+        "Up to 6 hours of coverage",
+        "One photographer",
+        "Editorial online gallery (min. 400 images)",
+        "Print release for personal use",
+        "Six-week delivery"
+      ]
+    },
+    {
+      "label": "Tier 02 · Most Popular",
+      "name": "The Signature",
+      "price": "",
+      "featured": true,
+      "description": "Full wedding-day storytelling from getting ready to the last dance. The tier most couples land on.",
+      "includes": [
+        "Up to 9 hours of coverage",
+        "One photographer",
+        "Complimentary engagement session",
+        "Editorial online gallery (min. 700 images)",
+        "Print release for personal use",
+        "Six-week delivery"
+      ]
+    },
+    {
+      "label": "Tier 03",
+      "name": "The Full Story",
+      "price": "",
+      "description": "For celebrations with multiple events, travel, or a large guest count. Second-shooter coverage and extended hours built in.",
+      "includes": [
+        "Up to 12 hours of coverage",
+        "Second photographer included",
+        "Complimentary engagement session",
+        "Editorial online gallery (min. 900 images)",
+        "Rehearsal-dinner or welcome-party coverage",
+        "Print release for personal use",
+        "Six-week delivery",
+        "Fine-art heirloom album credit"
+      ]
+    }
+  ],
+  "addons": [
+    {
+      "name": "Additional coverage hour",
+      "description": "Extra time for late-night dance floors or long getting-ready mornings.",
+      "price": "Inquire"
+    },
+    {
+      "name": "Second photographer",
+      "description": "A second set of eyes for two-location days and larger celebrations.",
+      "price": "Inquire"
+    },
+    {
+      "name": "Engagement session",
+      "description": "A relaxed golden-hour session — great for save-the-dates and getting comfortable in front of the camera.",
+      "price": "Inquire"
+    },
+    {
+      "name": "Rehearsal-dinner coverage",
+      "description": "Two hours of documentary coverage the night before the wedding.",
+      "price": "Inquire"
+    },
+    {
+      "name": "Fine-art album",
+      "description": "Linen or leather-bound heirloom albums, designed by hand.",
+      "price": "Inquire"
+    },
+    {
+      "name": "Destination travel",
+      "description": "Travel outside Buffalo and Germany. Quoted per trip based on distance and length.",
+      "price": "Inquire"
+    }
+  ]
+}
