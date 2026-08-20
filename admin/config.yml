@@ -51,13 +51,13 @@ collections:
               - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
               - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
 
-      - name: couples
-        label: Couples
-        file: data/galleries/couples.json
+      - name: sessions
+        label: Sessions (Couples, Families, Maternity, Seniors, Milestones)
+        file: data/galleries/sessions.json
         format: json
-        preview_path: galleries/couples.html
+        preview_path: galleries/sessions.html
         fields:
-          - { name: slug, label: Slug, widget: hidden, default: couples }
+          - { name: slug, label: Slug, widget: hidden, default: sessions }
           - { name: title, label: Title, widget: string }
           - { name: subtitle, label: Subtitle, widget: text, required: false }
           - { name: cover, label: Cover image, widget: image, required: false }
@@ -67,28 +67,7 @@ collections:
             widget: list
             summary: '{{fields.alt}}'
             fields:
-              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/couples' }
-              - { name: alt, label: Alt text, widget: string }
-              - { name: caption, label: Caption, widget: string, required: false }
-              - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
-
-      - name: families
-        label: Families
-        file: data/galleries/families.json
-        format: json
-        preview_path: galleries/families.html
-        fields:
-          - { name: slug, label: Slug, widget: hidden, default: families }
-          - { name: title, label: Title, widget: string }
-          - { name: subtitle, label: Subtitle, widget: text, required: false }
-          - { name: cover, label: Cover image, widget: image, required: false }
-          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
-          - name: images
-            label: Photos
-            widget: list
-            summary: '{{fields.alt}}'
-            fields:
-              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/families' }
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/sessions' }
               - { name: alt, label: Alt text, widget: string }
               - { name: caption, label: Caption, widget: string, required: false }
               - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
@@ -145,39 +124,43 @@ collections:
     label: Pricing
     files:
       - name: pricing
-        label: Pricing tiers & add-ons
+        label: Pricing sections
         file: data/pricing.json
         format: json
         fields:
-          - name: mode
-            label: Pricing display mode
-            widget: select
-            options:
-              - { label: 'Inquire for pricing', value: inquire }
-              - { label: 'Coming soon', value: coming_soon }
-              - { label: 'Public (show prices)', value: public }
-            default: inquire
           - { name: intro, label: Intro paragraph, widget: text }
-          - name: tiers
-            label: Tiers
+          - name: sections
+            label: Pricing sections
             widget: list
             summary: '{{fields.name}}'
             fields:
-              - { name: label, label: Tier label (e.g. "Tier 01"), widget: string, required: false }
-              - { name: name, label: Tier name, widget: string }
-              - { name: price, label: Price (leave blank for "inquire"), widget: string, required: false }
-              - { name: priceNote, label: Price note, widget: string, required: false }
-              - { name: featured, label: Featured tier?, widget: boolean, default: false, required: false }
+              - { name: id, label: 'Section id (e.g. "weddings")', widget: string }
+              - { name: label, label: 'Number label (e.g. "01")', widget: string, required: false }
+              - { name: name, label: Section name, widget: string }
+              - { name: startingAt, label: 'Starting price (e.g. "$2,250" — leave blank to hide)', widget: string, required: false }
+              - { name: priceNote, label: 'Price note (e.g. "Sessions starting at")', widget: string, required: false }
+              - { name: sub, label: Sub-tagline (optional), widget: string, required: false }
               - { name: description, label: Description, widget: text, required: false }
-              - { name: includes, label: Included items, widget: list, field: { name: item, label: Item, widget: string } }
-          - name: addons
-            label: Add-ons
-            widget: list
-            summary: '{{fields.name}}'
-            fields:
-              - { name: name, label: Name, widget: string }
-              - { name: description, label: Description, widget: text }
-              - { name: price, label: Price (e.g. "Inquire" or "$450"), widget: string, required: false }
+              - name: groups
+                label: Content groups
+                widget: list
+                summary: '{{fields.heading}}'
+                fields:
+                  - { name: heading, label: Heading (e.g. "Wedding Collections include"), widget: string }
+                  - { name: note, label: Optional note paragraph, widget: text, required: false }
+                  - name: items
+                    label: Bullet items
+                    widget: list
+                    required: false
+                    field: { name: item, label: Item, widget: string }
+              - { name: fineprint, label: Fine print paragraph, widget: text, required: false }
+              - name: cta
+                label: Call-to-action button
+                widget: object
+                required: false
+                fields:
+                  - { name: label, label: Button label, widget: string, default: 'Inquire here' }
+                  - { name: href, label: Link, widget: string, default: '/inquire.html' }
 
   # ============================================================
   # TESTIMONIALS — coming soon by default, but Abby can add as she collects them

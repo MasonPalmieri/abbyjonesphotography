@@ -27,7 +27,7 @@
 
   function fallbackMailto(form) {
     const data = new FormData(form);
-    const to = form.dataset.fallbackEmail || 'hello@abbyjonesphotography.com';
+    const to = form.dataset.fallbackEmail || 'abbyjonesphotography1@gmail.com';
     const subject = encodeURIComponent('New inquiry from ' + (data.get('name') || 'your website'));
     const lines = [];
     for (const [k, v] of data.entries()) {
@@ -57,6 +57,8 @@
     payload._subject = 'New inquiry from ' + (payload.name || 'your website');
     payload._template = 'table';
     payload._captcha = 'false';
+    payload._cc = 'abbyjonesphotography1@gmail.com';
+    if (payload.email) payload._replyto = payload.email;
 
     try {
       const res = await fetch(endpoint, {
@@ -68,7 +70,7 @@
       setStatus(form, 'ok', "Thank you — your inquiry is on its way. I'll respond within 48 hours.");
       form.reset();
     } catch (err) {
-      setStatus(form, 'err', "Something went wrong sending your message. Please email hello@abbyjonesphotography.com directly.");
+      setStatus(form, 'err', "Something went wrong sending your message. Please email abbyjonesphotography1@gmail.com directly.");
       console.warn(err);
     } finally {
       if (btn) { btn.disabled = false; btn.textContent = btn.dataset.origText || 'Send inquiry'; }

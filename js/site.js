@@ -88,6 +88,46 @@
     els.forEach((el) => io.observe(el));
   }
 
+  function wireTypewriter() {
+    const nodes = document.querySelectorAll('[data-typewriter]');
+    if (!nodes.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    nodes.forEach((node) => {
+      let words = [];
+      try { words = JSON.parse(node.getAttribute('data-words') || '[]'); } catch (e) { words = []; }
+      if (!words.length) return;
+      const original = node.textContent;
+      if (words[0] !== original) words.unshift(original);
+
+      let wi = 0, ci = 0, deleting = false;
+      function tick() {
+        const word = words[wi];
+        if (!deleting) {
+          ci++;
+          node.textContent = word.slice(0, ci);
+          if (ci === word.length) {
+            deleting = true;
+            setTimeout(tick, 2400);
+            return;
+          }
+          setTimeout(tick, 60 + Math.random() * 40);
+        } else {
+          ci--;
+          node.textContent = word.slice(0, ci);
+          if (ci === 0) {
+            deleting = false;
+            wi = (wi + 1) % words.length;
+            setTimeout(tick, 500);
+            return;
+          }
+          setTimeout(tick, 30);
+        }
+      }
+      setTimeout(tick, 2200);
+    });
+  }
+
   async function boot() {
     // Load partials in parallel
     const navRoot = document.querySelector('[data-partial="nav"]');
@@ -97,6 +137,7 @@
     if (footerRoot) jobs.push(loadPartial(footerRoot, 'footer').then(() => wireYear(footerRoot)));
     await Promise.all(jobs);
     wireReveal();
+    wireTypewriter();
   }
 
   if (document.readyState === 'loading') {

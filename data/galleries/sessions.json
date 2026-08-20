@@ -1,0 +1,10 @@
+{
+  "slug": "sessions",
+  "title": "Sessions",
+  "subtitle": "Couples, engagements, maternity, families, seniors, and milestones — relaxed and intentional portraits of the season you're in.",
+  "cover": "/assets/galleries/couples/rooftop-dip.jpg",
+  "emptyMessage": "New sessions will be added here soon.",
+  "images": [
+    { "src": "/assets/galleries/couples/rooftop-dip.jpg", "alt": "Couple in a sunset dip pose on a rooftop", "featured": true }
+  ]
+}
