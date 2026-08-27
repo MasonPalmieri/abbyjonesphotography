@@ -1,5 +1,5 @@
 {
-  "portrait": "/assets/site/abby-portrait.jpg",
+  "portrait": "/assets/galleries/IMG_5846.jpeg",
   "portraitAlt": "Abby Jones holding her camera",
   "headline": "Hi, I'm Abby — so glad you're here.",
   "lead": "I'm a wedding, couples, and family photographer with a deep love for the in-between moments — the laughter mid-toast, the quiet hand on a back, the look exchanged before anyone notices.",
@@ -8,8 +8,17 @@
     "My work is bright, candid, and editorial without being stiff. I want you to feel like yourselves in front of my camera, not like you're performing. That's where the real photographs live."
   ],
   "locations": [
-    { "label": "Based In", "value": "Buffalo, NY" },
-    { "label": "Also In", "value": "Germany" },
-    { "label": "Available", "value": "Worldwide" }
+    {
+      "label": "Based In",
+      "value": "Buffalo, NY"
+    },
+    {
+      "label": "Also In",
+      "value": "Germany"
+    },
+    {
+      "label": "Available",
+      "value": "Worldwide"
+    }
   ]
 }
