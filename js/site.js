@@ -128,6 +128,24 @@
     });
   }
 
+  async function wireAbout() {
+    // Only run on pages with an about-portrait mount
+    const img = document.querySelector('[data-about-portrait]');
+    if (!img) return;
+    try {
+      const res = await fetch('/data/about.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data.portrait) {
+        // Normalize path (CMS saves with leading slash; keep it)
+        img.src = data.portrait;
+      }
+      if (data.portraitAlt) {
+        img.alt = data.portraitAlt;
+      }
+    } catch (_) { /* silent — leave the HTML fallback in place */ }
+  }
+
   async function boot() {
     // Load partials in parallel
     const navRoot = document.querySelector('[data-partial="nav"]');
@@ -138,6 +156,7 @@
     await Promise.all(jobs);
     wireReveal();
     wireTypewriter();
+    wireAbout();
   }
 
   if (document.readyState === 'loading') {
