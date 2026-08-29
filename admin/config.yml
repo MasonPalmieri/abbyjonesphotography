@@ -116,6 +116,21 @@ collections:
             fields:
               - { name: label, label: Label, widget: string }
               - { name: value, label: Value, widget: string }
+          - name: family
+            label: My Family photos
+            widget: object
+            required: false
+            hint: 'Photos shown in the "My family" section. Leave any blank to keep the placeholder.'
+            fields:
+              - { name: photo1, label: Photo 1 (tall photo on the left), widget: image, required: false }
+              - { name: photo1Alt, label: Photo 1 alt text, widget: string, required: false }
+              - { name: photo1Caption, label: Photo 1 caption, widget: string, required: false, default: 'Peyton & I' }
+              - { name: photo2, label: Photo 2 (top right), widget: image, required: false }
+              - { name: photo2Alt, label: Photo 2 alt text, widget: string, required: false }
+              - { name: photo2Caption, label: Photo 2 caption, widget: string, required: false, default: 'Oliver' }
+              - { name: photo3, label: Photo 3 (bottom right), widget: image, required: false }
+              - { name: photo3Alt, label: Photo 3 alt text, widget: string, required: false }
+              - { name: photo3Caption, label: Photo 3 caption, widget: string, required: false, default: 'Oliver, Peyton & I' }
 
   # ============================================================
   # PRICING
@@ -140,6 +155,8 @@ collections:
               - { name: startingAt, label: 'Starting price (e.g. "$2,250" — leave blank to hide)', widget: string, required: false }
               - { name: priceNote, label: 'Price note (e.g. "Sessions starting at")', widget: string, required: false }
               - { name: sub, label: Sub-tagline (optional), widget: string, required: false }
+              - { name: heroImage, label: Hero image (shown at top of this section), widget: image, required: false }
+              - { name: heroImageAlt, label: Hero image alt text, widget: string, required: false }
               - { name: description, label: Description, widget: text, required: false }
               - name: groups
                 label: Content groups

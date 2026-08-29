@@ -7,6 +7,8 @@
       "name": "Weddings + Elopements",
       "startingAt": "$2,250",
       "priceNote": "Wedding collections beginning at",
+      "heroImage": "",
+      "heroImageAlt": "",
       "description": "From intimate elopements to full wedding-day celebrations, each collection is thoughtfully designed to document your day as it naturally unfolds.",
       "groups": [
         {
@@ -36,6 +38,8 @@
       "startingAt": "$275",
       "priceNote": "Sessions starting at",
       "sub": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
+      "heroImage": "",
+      "heroImageAlt": "",
       "description": "Whether you're celebrating something big or simply want to remember the season you're in, portrait sessions are a relaxed and intentional way to document the people and moments that matter most.",
       "groups": [
         {

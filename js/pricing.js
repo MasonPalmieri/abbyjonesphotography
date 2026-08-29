@@ -48,6 +48,15 @@
 
     // Body
     const body = el('div', 'psec__body');
+    if (sec.heroImage) {
+      const fig = el('figure', 'psec__hero');
+      const im = document.createElement('img');
+      im.src = sec.heroImage;
+      im.alt = sec.heroImageAlt || sec.name || '';
+      im.loading = 'lazy';
+      fig.appendChild(im);
+      body.appendChild(fig);
+    }
     if (sec.sub) {
       const s = el('p', 'psec__sub');
       s.textContent = sec.sub;

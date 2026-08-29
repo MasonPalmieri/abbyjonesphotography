@@ -329,6 +329,15 @@ a { color: inherit; text-decoration: none; }
 }
 .family__photo--tall .family__ph { aspect-ratio: 3 / 5; }
 .family__photo:not(.family__photo--tall) .family__ph { aspect-ratio: 4 / 3; }
+.family__img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  background: var(--ivory-deep);
+}
+.family__photo--tall .family__img { aspect-ratio: 3 / 5; }
+.family__photo:not(.family__photo--tall) .family__img { aspect-ratio: 4 / 3; }
 .family__photo figcaption {
   margin-top: 8px;
   font-size: 11px;
@@ -839,8 +848,18 @@ a { color: inherit; text-decoration: none; }
   transition: max-height .5s ease, padding .3s ease;
 }
 .psec--open .psec__body {
-  max-height: 2400px;
+  max-height: 3000px;
   padding: 4px 32px 36px;
+}
+.psec__hero {
+  margin: 0 0 28px;
+}
+.psec__hero img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
 }
 .psec__sub {
   font-size: 12px;

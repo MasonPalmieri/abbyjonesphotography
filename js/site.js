@@ -129,19 +129,45 @@
   }
 
   async function wireAbout() {
-    // Only run on pages with an about-portrait mount
+    // Only run on pages with an about-portrait mount or family slots
     const img = document.querySelector('[data-about-portrait]');
-    if (!img) return;
+    const familyPhotos = document.querySelector('[data-family-photos]');
+    if (!img && !familyPhotos) return;
     try {
       const res = await fetch('/data/about.json', { cache: 'no-cache' });
       if (!res.ok) return;
       const data = await res.json();
-      if (data.portrait) {
-        // Normalize path (CMS saves with leading slash; keep it)
-        img.src = data.portrait;
-      }
-      if (data.portraitAlt) {
-        img.alt = data.portraitAlt;
+
+      if (img && data.portrait) img.src = data.portrait;
+      if (img && data.portraitAlt) img.alt = data.portraitAlt;
+
+      if (familyPhotos && data.family) {
+        [1, 2, 3].forEach((n) => {
+          const slot = familyPhotos.querySelector('[data-family-slot="' + n + '"]');
+          if (!slot) return;
+          const src = data.family['photo' + n];
+          const alt = data.family['photo' + n + 'Alt'] || '';
+          const caption = data.family['photo' + n + 'Caption'];
+          // Update caption if provided
+          if (caption) {
+            const cap = slot.querySelector('figcaption');
+            if (cap) cap.textContent = caption;
+            const span = slot.querySelector('.family__ph span');
+            if (span) span.textContent = caption;
+          }
+          // Swap placeholder for real image if a src exists
+          if (src) {
+            const ph = slot.querySelector('.family__ph');
+            if (ph) {
+              const image = document.createElement('img');
+              image.src = src;
+              image.alt = alt;
+              image.className = 'family__img';
+              image.loading = 'lazy';
+              ph.replaceWith(image);
+            }
+          }
+        });
       }
     } catch (_) { /* silent — leave the HTML fallback in place */ }
   }
