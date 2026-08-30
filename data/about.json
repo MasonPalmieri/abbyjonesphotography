@@ -8,18 +8,27 @@
     "My work is bright, candid, and editorial without being stiff. I want you to feel like yourselves in front of my camera, not like you're performing. That's where the real photographs live."
   ],
   "locations": [
-    { "label": "Based In", "value": "Buffalo, NY" },
-    { "label": "Also In", "value": "Germany" },
-    { "label": "Available", "value": "Worldwide" }
+    {
+      "label": "Based In",
+      "value": "Buffalo, NY"
+    },
+    {
+      "label": "Also In",
+      "value": "Germany"
+    },
+    {
+      "label": "Available",
+      "value": "Worldwide"
+    }
   ],
   "family": {
-    "photo1": "",
+    "photo1": "/assets/galleries/IMG_9183.JPG",
     "photo1Alt": "Peyton and Abby",
     "photo1Caption": "Peyton & I",
-    "photo2": "",
+    "photo2": "/assets/galleries/IMG_9179.JPG",
     "photo2Alt": "Oliver the golden retriever",
     "photo2Caption": "Oliver",
-    "photo3": "",
+    "photo3": "/assets/galleries/IMG_9039.jpeg",
     "photo3Alt": "Oliver, Peyton and Abby",
     "photo3Caption": "Oliver, Peyton & I"
   }
