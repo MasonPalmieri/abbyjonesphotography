@@ -7,12 +7,14 @@
       "name": "Weddings + Elopements",
       "startingAt": "$2,250",
       "priceNote": "Wedding collections beginning at",
-      "heroImage": "",
+      "sub": "",
+      "heroImage": "/assets/galleries/IMG_5937.jpeg",
       "heroImageAlt": "",
       "description": "From intimate elopements to full wedding-day celebrations, each collection is thoughtfully designed to document your day as it naturally unfolds.",
       "groups": [
         {
           "heading": "Wedding Collections include",
+          "note": "",
           "items": [
             "Complimentary engagement session",
             "Professionally edited, high-resolution images",
@@ -29,7 +31,10 @@
         }
       ],
       "fineprint": "Complete wedding collection details and pricing will be sent upon inquiry.",
-      "cta": { "label": "Inquire here", "href": "/inquire.html" }
+      "cta": {
+        "label": "Inquire here",
+        "href": "/inquire.html"
+      }
     },
     {
       "id": "portrait-sessions",
@@ -44,6 +49,7 @@
       "groups": [
         {
           "heading": "Your session includes",
+          "note": "",
           "items": [
             "Professionally edited, high-resolution images",
             "Styling & outfit guidance",
@@ -52,7 +58,11 @@
           ]
         }
       ],
-      "cta": { "label": "Inquire here", "href": "/inquire.html" }
+      "fineprint": "",
+      "cta": {
+        "label": "Inquire here",
+        "href": "/inquire.html"
+      }
     }
   ]
 }
