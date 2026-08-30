@@ -11,6 +11,6 @@
   "formEndpoint": "https://formsubmit.co/ajax/2c08c91cd492501b8392227b7d49ce26",
   "socialProof": {
     "showTestimonials": true,
-    "testimonialsComingSoon": false
+    "testimonialsComingSoon": true
   }
 }
