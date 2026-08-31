@@ -43,17 +43,17 @@
 
   <nav class="nav" data-partial="nav"></nav>
 
-  <header class="hero">
+  <header class="hero" data-home-hero>
     <div class="hero__bg">
-      <img src="assets/galleries/couples/rooftop-dip.jpg" alt="Bride and groom in a sunset dip pose on a rooftop">
+      <img src="assets/galleries/couples/rooftop-dip.jpg" alt="Bride and groom in a sunset dip pose on a rooftop" data-home-hero-bg>
       <div class="hero__overlay"></div>
     </div>
     <div class="hero__content">
-      <p class="hero__eyebrow">Weddings · Elopements · Sessions</p>
-      <h1 class="hero__title">Capturing <em data-typewriter data-words='["life\u0027s most meaningful moments","weddings, worldwide","the in-between moments","stories worth holding onto"]'>life’s most meaningful moments</em>.</h1>
-      <p class="hero__sub">Bright, honest storytelling for the people you love most — based in Buffalo and Germany, traveling worldwide.</p>
-      <a href="inquire.html" class="hero__cta">
-        Inquire about your date
+      <p class="hero__eyebrow" data-home-hero-eyebrow>Weddings · Elopements · Sessions</p>
+      <h1 class="hero__title"><span data-home-hero-title-lead>Capturing</span> <em data-typewriter data-home-hero-title-em data-words='["life\u0027s most meaningful moments","weddings, worldwide","the in-between moments","stories worth holding onto"]'>life’s most meaningful moments</em><span data-home-hero-title-trailing>.</span></h1>
+      <p class="hero__sub" data-home-hero-sub>Bright, honest storytelling for the people you love most — based in Buffalo and Germany, traveling worldwide.</p>
+      <a href="inquire.html" class="hero__cta" data-home-hero-cta>
+        <span data-home-hero-cta-label>Inquire about your date</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -61,8 +61,8 @@
 
   <section class="section intro">
     <div class="container">
-      <p class="intro__quote reveal">The best photographs feel like a memory you can hold — not a pose you can remember.</p>
-      <p class="intro__attr reveal">— Abby Jones, Photographer</p>
+      <p class="intro__quote reveal" data-home-intro-quote>The best photographs feel like a memory you can hold — not a pose you can remember.</p>
+      <p class="intro__attr reveal" data-home-intro-attr>— Abby Jones, Photographer</p>
     </div>
   </section>
 
@@ -73,13 +73,13 @@
           <img src="/assets/galleries/IMG_5846.jpeg" alt="Abby Jones standing holding her camera" data-about-portrait>
         </div>
         <div class="about__text">
-          <h2 class="section__title reveal">Hi, I'm Abby — <em>so glad you're here.</em></h2>
-          <p class="about__lead reveal">I'm a wedding, couples, and family photographer with a deep love for the in-between moments — the laughter mid-toast, the quiet hand on a back, the look exchanged before anyone notices.</p>
+          <h2 class="section__title reveal" data-home-about-headline>Hi, I'm Abby — <em>so glad you're here.</em></h2>
+          <p class="about__lead reveal" data-home-about-lead>I'm a wedding, couples, and family photographer with a deep love for the in-between moments — the laughter mid-toast, the quiet hand on a back, the look exchanged before anyone notices.</p>
           <div class="about__body">
-            <p class="reveal">I'm based in Buffalo, New York, but spend part of every year living in Germany — so whether your story is happening in Western New York, the Bavarian countryside, or somewhere in between, I'd love to be the one to tell it.</p>
+            <p class="reveal" data-home-about-body>I'm based in Buffalo, New York, but spend part of every year living in Germany — so whether your story is happening in Western New York, the Bavarian countryside, or somewhere in between, I'd love to be the one to tell it.</p>
           </div>
           <p class="reveal" style="margin-top:24px;">
-            <a href="about.html" style="font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--sage); border-bottom:1px solid var(--sage); padding-bottom:4px;">Read more about me</a>
+            <a href="about.html" data-home-about-link style="font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--sage); border-bottom:1px solid var(--sage); padding-bottom:4px;">Read more about me</a>
           </p>
         </div>
       </div>
@@ -89,11 +89,11 @@
   <section class="section services">
     <div class="container">
       <div class="services__intro reveal">
-        <p class="section__label">The Experience</p>
-        <h2 class="section__title">Two ways to <em>work together.</em></h2>
-        <p>Every session is shaped around the people in front of the camera. These are the moments I love capturing most.</p>
+        <p class="section__label" data-home-services-label>The Experience</p>
+        <h2 class="section__title" data-home-services-title>Two ways to <em>work together.</em></h2>
+        <p data-home-services-desc>Every session is shaped around the people in front of the camera. These are the moments I love capturing most.</p>
       </div>
-      <div class="services__grid services__grid--two">
+      <div class="services__grid services__grid--two" data-home-services-tiles>
         <div class="service reveal">
           <p class="service__num">01</p>
           <h3 class="service__title">Weddings &amp; Elopements</h3>
@@ -113,13 +113,13 @@
   <section class="section gallery">
     <div class="container">
       <div class="gallery__head">
-        <p class="section__label reveal">Recent Work</p>
-        <h2 class="section__title reveal">A selection of <em>recent stories.</em></h2>
-        <p class="reveal">Real couples, real families, real days — and the moments that ended up meaning the most.</p>
+        <p class="section__label reveal" data-home-recent-label>Recent Work</p>
+        <h2 class="section__title reveal" data-home-recent-title>A selection of <em>recent stories.</em></h2>
+        <p class="reveal" data-home-recent-desc>Real couples, real families, real days — and the moments that ended up meaning the most.</p>
       </div>
       <div data-gallery="weddings" data-featured-count="6"></div>
       <p class="text-center mt-lg reveal">
-        <a href="galleries.html" class="btn btn--dark">Explore all galleries</a>
+        <a href="galleries.html" class="btn btn--dark" data-home-recent-btn>Explore all galleries</a>
       </p>
     </div>
   </section>
@@ -127,26 +127,26 @@
   <!-- Love letter (single home-page testimonial) -->
   <section class="section loveletter">
     <div class="container">
-      <p class="section__label reveal">A love letter</p>
+      <p class="section__label reveal" data-home-loveletter-label>A love letter</p>
       <blockquote class="loveletter__quote reveal">
-        <p>One strong emotional testimonial coming soon — a favorite quote from a past couple, right here on the home page.</p>
-        <footer>— Coming soon</footer>
+        <p data-home-loveletter-quote>One strong emotional testimonial coming soon — a favorite quote from a past couple, right here on the home page.</p>
+        <footer data-home-loveletter-footer>— Coming soon</footer>
       </blockquote>
     </div>
   </section>
 
   <section class="section contact" id="contact">
     <div class="container">
-      <p class="section__label reveal" style="color: rgba(248,244,237,0.55);">Inquiries</p>
-      <h2 class="contact__title reveal">Let's tell <em>your story.</em></h2>
-      <p class="contact__sub reveal">I'd love to hear what you're planning — wedding, engagement, family session, or something else entirely. Reach out and let's start a conversation.</p>
+      <p class="section__label reveal" data-home-contact-label style="color: rgba(248,244,237,0.55);">Inquiries</p>
+      <h2 class="contact__title reveal" data-home-contact-title>Let's tell <em>your story.</em></h2>
+      <p class="contact__sub reveal" data-home-contact-sub>I'd love to hear what you're planning — wedding, engagement, family session, or something else entirely. Reach out and let's start a conversation.</p>
       <div class="contact__actions reveal">
-        <a href="inquire.html" class="btn btn--primary">
-          Start an inquiry
+        <a href="inquire.html" class="btn btn--primary" data-home-contact-cta-primary>
+          <span data-home-contact-cta-primary-label>Start an inquiry</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="https://instagram.com/abbyjonesphotography" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-          Follow on Instagram
+          <span data-home-contact-cta-secondary-label>Follow on Instagram</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
         </a>
       </div>
@@ -161,7 +161,7 @@
         </div>
         <div class="contact__detail-item">
           <span class="contact__detail-label">Now Booking</span>
-          <span class="contact__detail-value">2026 — 2027</span>
+          <span class="contact__detail-value" data-home-contact-booking>2026 — 2027</span>
         </div>
       </div>
     </div>

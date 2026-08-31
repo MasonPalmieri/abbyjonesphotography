@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "backgroundImage": "/assets/galleries/couples/rooftop-dip.jpg",
+    "backgroundImageAlt": "Bride and groom in a sunset dip pose on a rooftop",
+    "eyebrow": "Weddings · Elopements · Sessions",
+    "titleLead": "Capturing",
+    "titleWords": [
+      "life's most meaningful moments",
+      "weddings, worldwide",
+      "the in-between moments",
+      "stories worth holding onto"
+    ],
+    "titleTrailing": ".",
+    "sub": "Bright, honest storytelling for the people you love most — based in Buffalo and Germany, traveling worldwide.",
+    "ctaLabel": "Inquire about your date",
+    "ctaHref": "/inquire.html"
+  },
+  "intro": {
+    "quote": "The best photographs feel like a memory you can hold — not a pose you can remember.",
+    "attribution": "— Abby Jones, Photographer"
+  },
+  "aboutPreview": {
+    "headline": "Hi, I'm Abby — <em>so glad you're here.</em>",
+    "lead": "I'm a wedding, couples, and family photographer with a deep love for the in-between moments — the laughter mid-toast, the quiet hand on a back, the look exchanged before anyone notices.",
+    "body": "I'm based in Buffalo, New York, but spend part of every year living in Germany — so whether your story is happening in Western New York, the Bavarian countryside, or somewhere in between, I'd love to be the one to tell it.",
+    "linkLabel": "Read more about me",
+    "linkHref": "/about.html"
+  },
+  "services": {
+    "label": "The Experience",
+    "title": "Two ways to <em>work together.</em>",
+    "description": "Every session is shaped around the people in front of the camera. These are the moments I love capturing most.",
+    "tiles": [
+      {
+        "number": "01",
+        "title": "Weddings & Elopements",
+        "description": "From intimate elopements to full wedding-day celebrations — each collection is thoughtfully designed to document your day as it naturally unfolds.",
+        "linkLabel": "View weddings & elopements",
+        "linkHref": "/galleries/weddings.html"
+      },
+      {
+        "number": "02",
+        "title": "Sessions",
+        "description": "Couples, engagements, maternity, families, seniors, and milestones — relaxed, intentional portraits of the season you're in.",
+        "linkLabel": "View sessions",
+        "linkHref": "/galleries/sessions.html"
+      }
+    ]
+  },
+  "recentWork": {
+    "label": "Recent Work",
+    "title": "A selection of <em>recent stories.</em>",
+    "description": "Real couples, real families, real days — and the moments that ended up meaning the most.",
+    "buttonLabel": "Explore all galleries",
+    "buttonHref": "/galleries.html"
+  },
+  "loveLetter": {
+    "label": "A love letter",
+    "quote": "One strong emotional testimonial coming soon — a favorite quote from a past couple, right here on the home page.",
+    "footer": "— Coming soon"
+  },
+  "contact": {
+    "label": "Inquiries",
+    "title": "Let's tell <em>your story.</em>",
+    "sub": "I'd love to hear what you're planning — wedding, engagement, family session, or something else entirely. Reach out and let's start a conversation.",
+    "primaryCtaLabel": "Start an inquiry",
+    "primaryCtaHref": "/inquire.html",
+    "secondaryCtaLabel": "Follow on Instagram",
+    "bookingYears": "2026 — 2027"
+  }
+}

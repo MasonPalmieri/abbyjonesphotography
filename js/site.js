@@ -172,6 +172,118 @@
     } catch (_) { /* silent — leave the HTML fallback in place */ }
   }
 
+  function setText(sel, value) {
+    if (value == null) return;
+    const el = document.querySelector(sel);
+    if (el) el.textContent = value;
+  }
+  function setHTML(sel, value) {
+    if (value == null) return;
+    const el = document.querySelector(sel);
+    if (el) el.innerHTML = value;
+  }
+  function setAttr(sel, attr, value) {
+    if (value == null) return;
+    const el = document.querySelector(sel);
+    if (el) el.setAttribute(attr, value);
+  }
+
+  async function wireHome() {
+    // Only run on the home page (hero mount is unique to index.html)
+    if (!document.querySelector('[data-home-hero]')) return;
+    try {
+      const res = await fetch('/data/home.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      const d = await res.json();
+
+      // Hero
+      if (d.hero) {
+        setAttr('[data-home-hero-bg]', 'src', d.hero.backgroundImage);
+        setAttr('[data-home-hero-bg]', 'alt', d.hero.backgroundImageAlt);
+        setText('[data-home-hero-eyebrow]', d.hero.eyebrow);
+        setText('[data-home-hero-title-lead]', d.hero.titleLead);
+        setText('[data-home-hero-title-trailing]', d.hero.titleTrailing);
+        const em = document.querySelector('[data-home-hero-title-em]');
+        if (em) {
+          const words = Array.isArray(d.hero.titleWords) ? d.hero.titleWords.filter(Boolean) : [];
+          if (words.length) {
+            em.textContent = words[0];
+            em.setAttribute('data-words', JSON.stringify(words));
+          }
+        }
+        setText('[data-home-hero-sub]', d.hero.sub);
+        setText('[data-home-hero-cta-label]', d.hero.ctaLabel);
+        setAttr('[data-home-hero-cta]', 'href', d.hero.ctaHref);
+      }
+
+      // Intro
+      if (d.intro) {
+        setText('[data-home-intro-quote]', d.intro.quote);
+        setText('[data-home-intro-attr]', d.intro.attribution);
+      }
+
+      // About preview (headline/lead/body may contain <em> tags, so use innerHTML)
+      if (d.aboutPreview) {
+        setHTML('[data-home-about-headline]', d.aboutPreview.headline);
+        setText('[data-home-about-lead]', d.aboutPreview.lead);
+        setText('[data-home-about-body]', d.aboutPreview.body);
+        setText('[data-home-about-link]', d.aboutPreview.linkLabel);
+        setAttr('[data-home-about-link]', 'href', d.aboutPreview.linkHref);
+      }
+
+      // Services
+      if (d.services) {
+        setText('[data-home-services-label]', d.services.label);
+        setHTML('[data-home-services-title]', d.services.title);
+        setText('[data-home-services-desc]', d.services.description);
+        const tilesRoot = document.querySelector('[data-home-services-tiles]');
+        if (tilesRoot && Array.isArray(d.services.tiles)) {
+          const existing = tilesRoot.querySelectorAll('.service');
+          d.services.tiles.forEach((tile, i) => {
+            const node = existing[i];
+            if (!node) return;
+            const num = node.querySelector('.service__num');
+            const title = node.querySelector('.service__title');
+            const desc = node.querySelector('.service__desc');
+            const link = node.querySelector('.service__link');
+            if (num && tile.number) num.textContent = tile.number;
+            if (title && tile.title) title.textContent = tile.title;
+            if (desc && tile.description) desc.textContent = tile.description;
+            if (link && tile.linkLabel) link.textContent = tile.linkLabel;
+            if (link && tile.linkHref) link.setAttribute('href', tile.linkHref);
+          });
+        }
+      }
+
+      // Recent Work
+      if (d.recentWork) {
+        setText('[data-home-recent-label]', d.recentWork.label);
+        setHTML('[data-home-recent-title]', d.recentWork.title);
+        setText('[data-home-recent-desc]', d.recentWork.description);
+        setText('[data-home-recent-btn]', d.recentWork.buttonLabel);
+        setAttr('[data-home-recent-btn]', 'href', d.recentWork.buttonHref);
+      }
+
+      // Love letter
+      if (d.loveLetter) {
+        setText('[data-home-loveletter-label]', d.loveLetter.label);
+        setText('[data-home-loveletter-quote]', d.loveLetter.quote);
+        setText('[data-home-loveletter-footer]', d.loveLetter.footer);
+      }
+
+      // Contact
+      if (d.contact) {
+        setText('[data-home-contact-label]', d.contact.label);
+        setHTML('[data-home-contact-title]', d.contact.title);
+        setText('[data-home-contact-sub]', d.contact.sub);
+        setText('[data-home-contact-cta-primary-label]', d.contact.primaryCtaLabel);
+        setAttr('[data-home-contact-cta-primary]', 'href', d.contact.primaryCtaHref);
+        setText('[data-home-contact-cta-secondary-label]', d.contact.secondaryCtaLabel);
+        setText('[data-home-contact-booking]', d.contact.bookingYears);
+      }
+    } catch (_) { /* silent — leave the HTML fallback in place */ }
+  }
+
   async function boot() {
     // Load partials in parallel
     const navRoot = document.querySelector('[data-partial="nav"]');
@@ -181,6 +293,8 @@
     if (footerRoot) jobs.push(loadPartial(footerRoot, 'footer').then(() => wireYear(footerRoot)));
     await Promise.all(jobs);
     wireReveal();
+    // wireHome must run before typewriter so it can update data-words + textContent
+    await wireHome();
     wireTypewriter();
     wireAbout();
   }

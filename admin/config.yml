@@ -1,5 +1,8 @@
 # Sveltia CMS configuration for Abby Jones Photography
 # Docs: https://github.com/sveltia/sveltia-cms
+#
+# Collections are ordered to mirror the site: Home → About → Pricing →
+# Galleries → Testimonials → Journal → Site Settings.
 
 backend:
   name: github
@@ -20,90 +23,118 @@ publish_mode: simple
 
 collections:
   # ============================================================
-  # GALLERIES — Abby's primary self-serve editing area
+  # HOME PAGE — every editable section on abbyjonesphotography.com
   # ============================================================
-  - name: galleries
-    label: Galleries
-    label_singular: Gallery
+  - name: home
+    label: Home Page
     description: >
-      Add, remove, and reorder photos in each gallery. Drag images to reorder.
-      Mark up to 6 as "Featured" to surface on the home page.
+      Edit each section of the home page. Sections appear in the same order they show up on the site:
+      Hero → Intro quote → About preview → Services → Recent Work → Love letter → Contact.
     files:
-      - name: weddings
-        label: Weddings
-        file: data/galleries/weddings.json
+      - name: home
+        label: Home page sections
+        file: data/home.json
         format: json
-        preview_path: galleries/weddings.html
+        preview_path: /
         fields:
-          - { name: slug, label: Slug, widget: hidden, default: weddings }
-          - { name: title, label: Title, widget: string }
-          - { name: subtitle, label: Subtitle, widget: text, required: false }
-          - { name: cover, label: Cover image (used on Galleries index), widget: image, required: false }
-          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
-          - name: images
-            label: Photos
-            label_singular: Photo
-            widget: list
-            summary: '{{fields.alt}}'
-            fields:
-              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/weddings' }
-              - { name: alt, label: Alt text (describe the photo for SEO + accessibility), widget: string }
-              - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
-              - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
-
-      - name: sessions
-        label: Sessions (Couples, Families, Maternity, Seniors, Milestones)
-        file: data/galleries/sessions.json
-        format: json
-        preview_path: galleries/sessions.html
-        fields:
-          - { name: slug, label: Slug, widget: hidden, default: sessions }
-          - { name: title, label: Title, widget: string }
-          - { name: subtitle, label: Subtitle, widget: text, required: false }
-          - { name: cover, label: Cover image, widget: image, required: false }
-          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
-          - name: images
-            label: Photos
-            widget: list
-            summary: '{{fields.alt}}'
-            fields:
-              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/sessions' }
-              - { name: alt, label: Alt text, widget: string }
-              - { name: caption, label: Caption, widget: string, required: false }
-              - { name: featured, label: Featured on home page?, widget: boolean, default: false, required: false }
-
-  # ============================================================
-  # SITE SETTINGS — top-level knobs
-  # ============================================================
-  - name: settings
-    label: Site Settings
-    files:
-      - name: site
-        label: General
-        file: data/site.json
-        format: json
-        fields:
-          - { name: siteName, label: Site name, widget: string }
-          - { name: tagline, label: Tagline, widget: string }
-          - { name: email, label: Contact email, widget: string }
-          - { name: instagramHandle, label: Instagram handle (no @), widget: string }
-          - { name: instagramUrl, label: Instagram URL, widget: string }
-          - { name: bookingYears, label: Booking years text, widget: string, hint: 'e.g. "2026 — 2027"' }
-          - { name: primaryLocation, label: Primary location, widget: string }
-          - { name: secondaryLocation, label: Secondary location, widget: string }
-          - { name: serviceArea, label: Service area, widget: string }
-          - { name: formEndpoint, label: Inquiry form endpoint (Formspree URL), widget: string, required: false, hint: 'Paste your Formspree endpoint here to activate the inquiry form.' }
-          - name: socialProof
-            label: Social proof
+          - name: hero
+            label: 'Hero (top of home page)'
             widget: object
             fields:
-              - { name: showTestimonials, label: Show testimonials section?, widget: boolean, default: true }
-              - { name: testimonialsComingSoon, label: Show "coming soon" placeholder?, widget: boolean, default: true }
+              - { name: backgroundImage, label: Background image, widget: image }
+              - { name: backgroundImageAlt, label: Background image alt text, widget: string }
+              - { name: eyebrow, label: 'Eyebrow (small text above title, e.g. "Weddings · Elopements · Sessions")', widget: string }
+              - { name: titleLead, label: 'Title — first word (e.g. "Capturing")', widget: string }
+              - name: titleWords
+                label: 'Title — rotating words (typewriter effect)'
+                widget: list
+                summary: '{{fields.word}}'
+                hint: 'These words fade in and out one after another. Add, remove, or reorder.'
+                field: { name: word, label: Word or phrase, widget: string }
+              - { name: titleTrailing, label: 'Title — trailing punctuation (e.g. ".")', widget: string, required: false }
+              - { name: sub, label: Sub-headline (paragraph below title), widget: text }
+              - { name: ctaLabel, label: Button label, widget: string, default: 'Inquire about your date' }
+              - { name: ctaHref, label: Button link, widget: string, default: '/inquire.html' }
 
+          - name: intro
+            label: 'Intro quote (small section below hero)'
+            widget: object
+            fields:
+              - { name: quote, label: Quote, widget: text }
+              - { name: attribution, label: Attribution, widget: string }
+
+          - name: aboutPreview
+            label: 'About preview (short intro that links to the About page)'
+            widget: object
+            hint: 'Portrait photo comes from the About Page collection, so it stays in sync.'
+            fields:
+              - { name: headline, label: 'Headline (use <em>text</em> to italicize)', widget: string }
+              - { name: lead, label: Lead paragraph, widget: text }
+              - { name: body, label: Body paragraph, widget: text }
+              - { name: linkLabel, label: Link label, widget: string, default: 'Read more about me' }
+              - { name: linkHref, label: Link, widget: string, default: '/about.html' }
+
+          - name: services
+            label: 'Services (Two ways to work together)'
+            widget: object
+            fields:
+              - { name: label, label: 'Small section label (e.g. "The Experience")', widget: string }
+              - { name: title, label: 'Section title (use <em>text</em> to italicize)', widget: string }
+              - { name: description, label: Section description, widget: text }
+              - name: tiles
+                label: Service tiles
+                widget: list
+                summary: '{{fields.title}}'
+                fields:
+                  - { name: number, label: 'Number (e.g. "01")', widget: string }
+                  - { name: title, label: Tile title, widget: string }
+                  - { name: description, label: Tile description, widget: text }
+                  - { name: linkLabel, label: Link label, widget: string }
+                  - { name: linkHref, label: Link, widget: string }
+
+          - name: recentWork
+            label: 'Recent Work (the photo grid section)'
+            widget: object
+            hint: 'The actual photos come from Galleries → Weddings (any photo marked "Featured on home page").'
+            fields:
+              - { name: label, label: 'Small section label (e.g. "Recent Work")', widget: string }
+              - { name: title, label: 'Section title (use <em>text</em> to italicize)', widget: string }
+              - { name: description, label: Section description, widget: text }
+              - { name: buttonLabel, label: Button label, widget: string, default: 'Explore all galleries' }
+              - { name: buttonHref, label: Button link, widget: string, default: '/galleries.html' }
+
+          - name: loveLetter
+            label: 'Love letter (single home-page testimonial)'
+            widget: object
+            fields:
+              - { name: label, label: 'Small section label (e.g. "A love letter")', widget: string }
+              - { name: quote, label: Quote, widget: text }
+              - { name: footer, label: Attribution / footer, widget: string }
+
+          - name: contact
+            label: 'Contact (Let''s tell your story)'
+            widget: object
+            fields:
+              - { name: label, label: 'Small section label (e.g. "Inquiries")', widget: string }
+              - { name: title, label: 'Section title (use <em>text</em> to italicize)', widget: string }
+              - { name: sub, label: Sub-paragraph, widget: text }
+              - { name: primaryCtaLabel, label: Primary button label, widget: string, default: 'Start an inquiry' }
+              - { name: primaryCtaHref, label: Primary button link, widget: string, default: '/inquire.html' }
+              - { name: secondaryCtaLabel, label: Secondary button label, widget: string, default: 'Follow on Instagram' }
+              - { name: bookingYears, label: 'Now booking (e.g. "2026 — 2027")', widget: string }
+
+  # ============================================================
+  # ABOUT PAGE
+  # ============================================================
+  - name: about_page
+    label: About Page
+    description: 'The standalone About page (abbyjonesphotography.com/about).'
+    files:
       - name: about
-        label: About Page
+        label: About Page content
         file: data/about.json
         format: json
+        preview_path: /about.html
         fields:
           - { name: portrait, label: Portrait image, widget: image }
           - { name: portraitAlt, label: Portrait alt text, widget: string }
@@ -136,12 +167,14 @@ collections:
   # PRICING
   # ============================================================
   - name: pricing
-    label: Pricing
+    label: Pricing Page
+    description: 'The Pricing page (abbyjonesphotography.com/pricing).'
     files:
       - name: pricing
         label: Pricing sections
         file: data/pricing.json
         format: json
+        preview_path: /pricing.html
         fields:
           - { name: intro, label: Intro paragraph, widget: text }
           - name: sections
@@ -180,6 +213,59 @@ collections:
                   - { name: href, label: Link, widget: string, default: '/inquire.html' }
 
   # ============================================================
+  # GALLERIES — Abby's primary self-serve editing area
+  # ============================================================
+  - name: galleries
+    label: Galleries
+    label_singular: Gallery
+    description: >
+      Add, remove, and reorder photos in each gallery. Drag images to reorder.
+      Mark up to 6 as "Featured" to surface on the home page.
+    files:
+      - name: weddings
+        label: Weddings
+        file: data/galleries/weddings.json
+        format: json
+        preview_path: /galleries/weddings.html
+        fields:
+          - { name: slug, label: Slug, widget: hidden, default: weddings }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: cover, label: Cover image (used on Galleries index), widget: image, required: false }
+          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
+          - name: images
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/weddings' }
+              - { name: alt, label: Alt text (describe the photo for SEO + accessibility), widget: string }
+              - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
+              - { name: featured, label: 'Featured on home page?', widget: boolean, default: false, required: false }
+
+      - name: sessions
+        label: Sessions (Couples, Families, Maternity, Seniors, Milestones)
+        file: data/galleries/sessions.json
+        format: json
+        preview_path: /galleries/sessions.html
+        fields:
+          - { name: slug, label: Slug, widget: hidden, default: sessions }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: cover, label: Cover image, widget: image, required: false }
+          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
+          - name: images
+            label: Photos
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/sessions' }
+              - { name: alt, label: Alt text, widget: string }
+              - { name: caption, label: Caption, widget: string, required: false }
+              - { name: featured, label: 'Featured on home page?', widget: boolean, default: false, required: false }
+
+  # ============================================================
   # TESTIMONIALS — coming soon by default, but Abby can add as she collects them
   # ============================================================
   - name: testimonials
@@ -190,7 +276,7 @@ collections:
         file: data/testimonials.json
         format: json
         fields:
-          - { name: comingSoon, label: Show "coming soon" placeholder?, widget: boolean, default: true }
+          - { name: comingSoon, label: 'Show "coming soon" placeholder?', widget: boolean, default: true }
           - { name: comingSoonMessage, label: Coming-soon message, widget: string, required: false }
           - name: items
             label: Testimonials
@@ -212,7 +298,7 @@ collections:
         file: data/blog.json
         format: json
         fields:
-          - { name: comingSoon, label: Coming soon mode?, widget: boolean, default: true }
+          - { name: comingSoon, label: 'Coming soon mode?', widget: boolean, default: true }
           - name: posts
             label: Posts (when ready)
             widget: list
@@ -224,3 +310,32 @@ collections:
               - { name: cover, label: Cover image, widget: image, required: false }
               - { name: excerpt, label: Excerpt, widget: text, required: false }
               - { name: body, label: Post body (Markdown), widget: markdown }
+
+  # ============================================================
+  # SITE SETTINGS — top-level knobs (email, tagline, socials)
+  # ============================================================
+  - name: settings
+    label: Site Settings
+    description: 'Global settings that apply across the whole site.'
+    files:
+      - name: site
+        label: General
+        file: data/site.json
+        format: json
+        fields:
+          - { name: siteName, label: Site name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: email, label: Contact email, widget: string }
+          - { name: instagramHandle, label: Instagram handle (no @), widget: string }
+          - { name: instagramUrl, label: Instagram URL, widget: string }
+          - { name: bookingYears, label: Booking years text, widget: string, hint: 'e.g. "2026 — 2027"' }
+          - { name: primaryLocation, label: Primary location, widget: string }
+          - { name: secondaryLocation, label: Secondary location, widget: string }
+          - { name: serviceArea, label: Service area, widget: string }
+          - { name: formEndpoint, label: Inquiry form endpoint (Formspree URL), widget: string, required: false, hint: 'Paste your Formspree endpoint here to activate the inquiry form.' }
+          - name: socialProof
+            label: Social proof
+            widget: object
+            fields:
+              - { name: showTestimonials, label: 'Show testimonials section?', widget: boolean, default: true }
+              - { name: testimonialsComingSoon, label: 'Show "coming soon" placeholder?', widget: boolean, default: true }
