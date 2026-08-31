@@ -312,6 +312,66 @@ collections:
               - { name: body, label: Post body (Markdown), widget: markdown }
 
   # ============================================================
+  # DESIGN — curated fonts, accent color, section styling
+  # ============================================================
+  - name: design
+    label: Design
+    description: >
+      Choose from a curated set of fonts and accent colors. These are
+      pre-tested to look good on the site. For anything outside these
+      options (a specific font, custom color palette, layout tweak, or
+      section reorder), text Mason.
+    files:
+      - name: theme
+        label: Theme
+        file: data/theme.json
+        format: json
+        preview_path: /
+        fields:
+          - name: headingFont
+            label: Heading font (titles and section headers)
+            widget: select
+            default: 'Cormorant Garamond'
+            options:
+              - { label: 'Cormorant Garamond (current — classic wedding serif)', value: 'Cormorant Garamond' }
+              - { label: 'Playfair Display (dramatic, high contrast)', value: 'Playfair Display' }
+              - { label: 'Fraunces (warm, characterful)', value: 'Fraunces' }
+              - { label: 'DM Serif Display (bold, editorial)', value: 'DM Serif Display' }
+              - { label: 'Cormorant Infant (softer version of current)', value: 'Cormorant Infant' }
+          - name: bodyFont
+            label: Body font (paragraphs, buttons, small text)
+            widget: select
+            default: 'Inter'
+            options:
+              - { label: 'Inter (current — clean, modern)', value: 'Inter' }
+              - { label: 'Nunito Sans (soft, friendly)', value: 'Nunito Sans' }
+              - { label: 'Lato (warm, humanist)', value: 'Lato' }
+              - { label: 'Montserrat (geometric, editorial)', value: 'Montserrat' }
+              - { label: 'Work Sans (crisp, minimal)', value: 'Work Sans' }
+          - name: accentColor
+            label: Accent color (links, hover states, small highlights)
+            widget: select
+            default: '#7D8874'
+            options:
+              - { label: 'Muted Sage (current)', value: '#7D8874' }
+              - { label: 'Deep Olive', value: '#3E493D' }
+              - { label: 'Blush Pink', value: '#B78F82' }
+              - { label: 'Warm Terracotta', value: '#B87B5C' }
+              - { label: 'Slate Blue', value: '#6B7A8C' }
+              - { label: 'Charcoal', value: '#292B28' }
+          - name: sectionAlternate
+            label: 'Alternate section backgrounds? (soft cream / ivory stripes)'
+            widget: boolean
+            default: false
+            hint: "Turn on to give every other section a slightly different background so they don't blend together."
+          - name: _note
+            label: 'Need something different?'
+            widget: string
+            required: false
+            default: 'Want a different font, custom color, section reorder, or layout change? Text Mason.'
+            hint: "This field is a reminder only — you don't need to fill it in."
+
+  # ============================================================
   # SITE SETTINGS — top-level knobs (email, tagline, socials)
   # ============================================================
   - name: settings
