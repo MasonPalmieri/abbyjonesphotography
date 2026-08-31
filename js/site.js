@@ -391,6 +391,105 @@
     } catch (_) { /* silent — leave the HTML fallback in place */ }
   }
 
+  async function wireTestimonials() {
+    const mounts = document.querySelectorAll('[data-testimonials]');
+    if (!mounts.length) return;
+    try {
+      const res = await fetch('/data/testimonials.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      const data = await res.json();
+      const items = Array.isArray(data.items) ? data.items.filter((it) => it && it.quote) : [];
+      mounts.forEach((mount) => renderTestimonialsCarousel(mount, items, data));
+    } catch (_) { /* silent — fallback content stays */ }
+  }
+
+  function renderTestimonialsCarousel(mount, items, data) {
+    // If coming-soon toggled on OR no items, show the coming-soon fallback
+    const track = mount.querySelector('[data-testimonials-track]');
+    if (!track) return;
+
+    if (!items.length || data.comingSoon) {
+      // Leave the HTML fallback quote untouched
+      const label = mount.querySelector('[data-testimonials-label]');
+      if (label && data.comingSoonMessage && data.comingSoon) {
+        // Nothing to swap on the label; the fallback quote already reads "coming soon"
+      }
+      // Hide arrows/dots if any
+      mount.querySelectorAll('[data-testimonials-nav]').forEach((n) => n.style.display = 'none');
+      return;
+    }
+
+    // Build slides
+    track.innerHTML = items.map((it) => {
+      const photos = Array.isArray(it.photos) ? it.photos.filter((p) => p && p.src) : [];
+      const photoHTML = photos.length
+        ? '<div class="tslide__photos tslide__photos--' + Math.min(photos.length, 3) + '">' +
+            photos.slice(0, 3).map((p) =>
+              '<img src="' + escapeHTML(p.src) + '" alt="' + escapeHTML(p.alt || '') + '" loading="lazy">'
+            ).join('') +
+          '</div>'
+        : '';
+      const meta = [it.author, it.sessionType].filter(Boolean).map(escapeHTML).join(' · ');
+      // Strip surrounding quotes if the CMS content included them; we add typographic ones via CSS
+      const cleanQuote = String(it.quote || '').replace(/^["“”]|["“”]$/g, '').trim();
+      return '<article class="tslide">' +
+        photoHTML +
+        '<blockquote class="tslide__quote"><p>' + escapeHTML(cleanQuote) + '</p></blockquote>' +
+        (meta ? '<footer class="tslide__meta">— ' + meta + '</footer>' : '') +
+        '</article>';
+    }).join('');
+
+    // Wire nav + dots
+    const prev = mount.querySelector('[data-testimonials-prev]');
+    const next = mount.querySelector('[data-testimonials-next]');
+    const dotsWrap = mount.querySelector('[data-testimonials-dots]');
+
+    function scrollToIndex(i) {
+      const slides = track.querySelectorAll('.tslide');
+      const target = slides[Math.max(0, Math.min(i, slides.length - 1))];
+      if (target) track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    }
+
+    function currentIndex() {
+      const slides = track.querySelectorAll('.tslide');
+      const scrollX = track.scrollLeft;
+      let best = 0, bestDist = Infinity;
+      slides.forEach((s, i) => {
+        const dist = Math.abs(s.offsetLeft - track.offsetLeft - scrollX);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      return best;
+    }
+
+    if (prev) prev.addEventListener('click', () => scrollToIndex(currentIndex() - 1));
+    if (next) next.addEventListener('click', () => scrollToIndex(currentIndex() + 1));
+
+    if (dotsWrap) {
+      dotsWrap.innerHTML = items.map((_, i) =>
+        '<button type="button" class="tdot" data-testimonials-dot="' + i + '" aria-label="Testimonial ' + (i + 1) + '"></button>'
+      ).join('');
+      dotsWrap.querySelectorAll('[data-testimonials-dot]').forEach((btn) => {
+        btn.addEventListener('click', () => scrollToIndex(parseInt(btn.getAttribute('data-testimonials-dot'), 10)));
+      });
+      const updateDots = () => {
+        const idx = currentIndex();
+        dotsWrap.querySelectorAll('[data-testimonials-dot]').forEach((d, i) => {
+          d.classList.toggle('tdot--active', i === idx);
+        });
+        // Hide prev/next at ends
+        const slideCount = items.length;
+        if (prev) prev.classList.toggle('tnav--disabled', idx === 0);
+        if (next) next.classList.toggle('tnav--disabled', idx === slideCount - 1);
+      };
+      updateDots();
+      let scrollTimer;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateDots, 60);
+      });
+    }
+  }
+
   async function boot() {
     // Load partials in parallel
     const navRoot = document.querySelector('[data-partial="nav"]');
@@ -404,6 +503,7 @@
     await wireHome();
     wireTypewriter();
     wireAbout();
+    wireTestimonials();
   }
 
   if (document.readyState === 'loading') {

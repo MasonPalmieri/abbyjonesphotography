@@ -356,10 +356,20 @@ collections:
             label: Testimonials
             widget: list
             summary: '{{fields.author}}'
+            hint: 'Each one becomes a slide in the scrollable carousel on the home page. Photos are optional — add up to 3 per testimonial.'
             fields:
               - { name: quote, label: Quote, widget: text }
               - { name: author, label: Author (e.g. "Sarah + Ben, 2026"), widget: string }
               - { name: sessionType, label: Session type, widget: string, required: false }
+              - name: photos
+                label: 'Photos (optional, up to 3)'
+                widget: list
+                required: false
+                max: 3
+                summary: '{{fields.alt}}'
+                fields:
+                  - { name: src, label: Photo, widget: image }
+                  - { name: alt, label: Alt text (describe the photo), widget: string, required: false }
 
   # ============================================================
   # BLOG / JOURNAL — coming soon
