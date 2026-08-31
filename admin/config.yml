@@ -251,6 +251,20 @@ collections:
               - { name: heroImage, label: Hero image (shown at top of this section), widget: image, required: false }
               - { name: heroImageAlt, label: Hero image alt text, widget: string, required: false }
               - { name: description, label: Description, widget: text, required: false }
+              - name: tiers
+                label: 'Collection tiers (side-by-side cards, e.g. Intimate / Signature / Full Story)'
+                widget: list
+                required: false
+                summary: '{{fields.name}} — {{fields.price}}'
+                hint: 'Leave empty to hide the tier cards. Best with 2–4 tiers.'
+                fields:
+                  - { name: label, label: 'Small label above name (e.g. "Collection 01")', widget: string, required: false }
+                  - { name: name, label: 'Tier name (e.g. "The Signature")', widget: string }
+                  - { name: price, label: 'Price (e.g. "$3,500")', widget: string, required: false }
+                  - { name: priceNote, label: 'Price note (e.g. "starting at")', widget: string, required: false, default: 'starting at' }
+                  - { name: featured, label: 'Highlight this tier as "Most Popular"?', widget: boolean, default: false }
+                  - { name: description, label: One-line description, widget: text, required: false }
+                  - { name: includes, label: 'What''s included (one bullet per line)', widget: list, required: false, field: { name: item, label: Bullet, widget: string } }
               - name: groups
                 label: Content groups
                 widget: list

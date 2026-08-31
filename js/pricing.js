@@ -67,6 +67,48 @@
       d.textContent = sec.description;
       body.appendChild(d);
     }
+
+    // Tier cards (e.g. wedding collections: Intimate / Signature / Full Story)
+    if (Array.isArray(sec.tiers) && sec.tiers.length) {
+      const tiersWrap = el('div', 'psec__tiers');
+      sec.tiers.filter((t) => t && (t.name || t.price || (t.includes && t.includes.length))).forEach((t) => {
+        const card = el('article', 'ptier' + (t.featured ? ' ptier--featured' : ''));
+        if (t.label) {
+          const lb = el('p', 'ptier__label');
+          lb.textContent = t.label;
+          card.appendChild(lb);
+        }
+        if (t.name) {
+          const nm = el('h3', 'ptier__name');
+          nm.textContent = t.name;
+          card.appendChild(nm);
+        }
+        if (t.price) {
+          const pr = el('p', 'ptier__price');
+          pr.innerHTML =
+            (t.priceNote ? '<small>' + escapeHtml(t.priceNote) + '</small> ' : '') +
+            '<strong>' + escapeHtml(t.price) + '</strong>';
+          card.appendChild(pr);
+        }
+        if (t.description) {
+          const ds = el('p', 'ptier__desc');
+          ds.textContent = t.description;
+          card.appendChild(ds);
+        }
+        if (Array.isArray(t.includes) && t.includes.length) {
+          const ul = el('ul', 'ptier__list');
+          t.includes.forEach((line) => {
+            const li = document.createElement('li');
+            li.textContent = line;
+            ul.appendChild(li);
+          });
+          card.appendChild(ul);
+        }
+        tiersWrap.appendChild(card);
+      });
+      if (tiersWrap.children.length) body.appendChild(tiersWrap);
+    }
+
     if (Array.isArray(sec.groups)) {
       sec.groups.forEach((g) => {
         const gw = el('div', 'psec__group');

@@ -11,21 +11,68 @@
       "heroImage": "/assets/galleries/IMG_5937.jpeg",
       "heroImageAlt": "",
       "description": "From intimate elopements to full wedding-day celebrations, each collection is thoughtfully designed to document your day as it naturally unfolds.",
-      "groups": [
+      "tiers": [
         {
-          "heading": "Wedding Collections include",
-          "note": "",
-          "items": [
-            "Complimentary engagement session",
-            "Professionally edited, high-resolution images",
-            "Personalized timeline planning",
-            "Sneak peeks within one week",
-            "Private online gallery",
-            "Second photographer included with 8 & 10-hour collections"
+          "label": "Collection 01",
+          "name": "The Intimate",
+          "price": "$2,250",
+          "priceNote": "starting at",
+          "featured": false,
+          "description": "Small weddings, elopements, and courthouse-to-dinner days.",
+          "includes": [
+            "Up to 6 hours of coverage",
+            "One photographer",
+            "Private online gallery (min. 400 images)",
+            "Print release for personal use",
+            "Six-week delivery"
           ]
         },
         {
-          "heading": "Elopement Session Collections",
+          "label": "Collection 02 · Most Popular",
+          "name": "The Signature",
+          "price": "$3,500",
+          "priceNote": "starting at",
+          "featured": true,
+          "description": "Full wedding-day storytelling from getting ready to the last dance.",
+          "includes": [
+            "Up to 9 hours of coverage",
+            "One photographer",
+            "Complimentary engagement session",
+            "Private online gallery (min. 700 images)",
+            "Print release for personal use",
+            "Six-week delivery"
+          ]
+        },
+        {
+          "label": "Collection 03",
+          "name": "The Full Story",
+          "price": "$5,000",
+          "priceNote": "starting at",
+          "featured": false,
+          "description": "For celebrations with multiple events, travel, or a large guest count.",
+          "includes": [
+            "Up to 12 hours of coverage",
+            "Second photographer included",
+            "Complimentary engagement session",
+            "Private online gallery (min. 900 images)",
+            "Rehearsal-dinner or welcome-party coverage",
+            "Print release for personal use",
+            "Six-week delivery"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "heading": "Every wedding collection includes",
+          "note": "",
+          "items": [
+            "Personalized timeline planning",
+            "Sneak peeks within one week",
+            "Professionally edited, high-resolution images"
+          ]
+        },
+        {
+          "heading": "Elopements",
           "note": "Planning an elopement? Custom coverage is available based on the details of your day.",
           "items": []
         }
