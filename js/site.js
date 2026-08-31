@@ -129,48 +129,155 @@
   }
 
   async function wireAbout() {
-    // Only run on pages with an about-portrait mount or family slots
+    // Runs on any page carrying about mounts (about.html + wherever we reuse them)
     const img = document.querySelector('[data-about-portrait]');
     const familyPhotos = document.querySelector('[data-family-photos]');
-    if (!img && !familyPhotos) return;
+    const hasAboutText = document.querySelector('[data-about-headline], [data-about-lead], [data-about-body]');
+    if (!img && !familyPhotos && !hasAboutText) return;
     try {
       const res = await fetch('/data/about.json', { cache: 'no-cache' });
       if (!res.ok) return;
       const data = await res.json();
 
+      // ----- Portrait -----
       if (img && data.portrait) img.src = data.portrait;
       if (img && data.portraitAlt) img.alt = data.portraitAlt;
 
-      if (familyPhotos && data.family) {
-        [1, 2, 3].forEach((n) => {
-          const slot = familyPhotos.querySelector('[data-family-slot="' + n + '"]');
-          if (!slot) return;
-          const src = data.family['photo' + n];
-          const alt = data.family['photo' + n + 'Alt'] || '';
-          const caption = data.family['photo' + n + 'Caption'];
-          // Update caption if provided
-          if (caption) {
-            const cap = slot.querySelector('figcaption');
-            if (cap) cap.textContent = caption;
-            const span = slot.querySelector('.family__ph span');
-            if (span) span.textContent = caption;
+      // ----- Hero text -----
+      setHTML('[data-about-headline]', data.headline);
+      setText('[data-about-lead]', data.lead);
+      if (Array.isArray(data.body)) {
+        const bodyEl = document.querySelector('[data-about-body]');
+        if (bodyEl) {
+          bodyEl.innerHTML = data.body
+            .filter((p) => p && String(p).trim())
+            .map((p) => '<p class="reveal">' + escapeHTML(p) + '</p>')
+            .join('');
+        }
+      }
+
+      // ----- Locations -----
+      if (Array.isArray(data.locations)) {
+        const locEl = document.querySelector('[data-about-locations]');
+        if (locEl) {
+          locEl.innerHTML = data.locations
+            .filter((l) => l && (l.label || l.value))
+            .map((l) =>
+              '<div class="about__location">' +
+              '<span class="about__location-label">' + escapeHTML(l.label || '') + '</span>' +
+              '<span class="about__location-value">' + escapeHTML(l.value || '') + '</span>' +
+              '</div>'
+            ).join('');
+        }
+      }
+
+      // ----- "A Little More About Me" intro -----
+      if (data.aboutMore) {
+        setText('[data-about-more-label]', data.aboutMore.label);
+        setHTML('[data-about-more-title]', data.aboutMore.title);
+      }
+
+      // ----- Family (heading + text + photos) -----
+      if (data.family) {
+        setText('[data-about-family-heading]', data.family.heading);
+        if (Array.isArray(data.family.text)) {
+          const famText = document.querySelector('[data-about-family-text]');
+          if (famText) {
+            famText.innerHTML = data.family.text
+              .filter((p) => p && String(p).trim())
+              .map((p) => '<p>' + escapeHTML(p) + '</p>')
+              .join('');
           }
-          // Swap placeholder for real image if a src exists
-          if (src) {
-            const ph = slot.querySelector('.family__ph');
-            if (ph) {
-              const image = document.createElement('img');
-              image.src = src;
-              image.alt = alt;
-              image.className = 'family__img';
-              image.loading = 'lazy';
-              ph.replaceWith(image);
+        }
+
+        if (familyPhotos) {
+          [1, 2, 3].forEach((n) => {
+            const slot = familyPhotos.querySelector('[data-family-slot="' + n + '"]');
+            if (!slot) return;
+            const src = data.family['photo' + n];
+            const alt = data.family['photo' + n + 'Alt'] || '';
+            const caption = data.family['photo' + n + 'Caption'];
+            if (caption) {
+              const cap = slot.querySelector('figcaption');
+              if (cap) cap.textContent = caption;
+              const span = slot.querySelector('.family__ph span');
+              if (span) span.textContent = caption;
+            }
+            if (src) {
+              const ph = slot.querySelector('.family__ph');
+              if (ph) {
+                const image = document.createElement('img');
+                image.src = src;
+                image.alt = alt;
+                image.className = 'family__img';
+                image.loading = 'lazy';
+                ph.replaceWith(image);
+              }
+            }
+          });
+        }
+      }
+
+      // ----- Fun facts -----
+      if (data.funFacts) {
+        setText('[data-about-funfacts-eyebrow]', data.funFacts.eyebrow);
+        if (Array.isArray(data.funFacts.items)) {
+          const grid = document.querySelector('[data-about-funfacts-grid]');
+          if (grid) {
+            const items = data.funFacts.items.filter((it) => it && (it.title || it.body));
+            if (items.length) {
+              grid.innerHTML = items.map((it, idx) => {
+                const num = it.number || String(idx + 1).padStart(2, '0');
+                const media = it.photo
+                  ? '<img src="' + escapeAttr(it.photo) + '" alt="' + escapeAttr(it.photoAlt || '') + '" class="funfact__img" loading="lazy">'
+                  : '<div class="funfact__ph"><span>' + escapeHTML(it.photoCaption || '') + '</span></div>';
+                return '<article class="funfact">' +
+                  '<span class="funfact__num">' + escapeHTML(num) + '</span>' +
+                  media +
+                  '<h4 class="funfact__title">' + escapeHTML(it.title || '') + '</h4>' +
+                  '<p class="funfact__body">' + escapeHTML(it.body || '') + '</p>' +
+                  '</article>';
+              }).join('');
             }
           }
-        });
+        }
+      }
+
+      // ----- Love letter -----
+      if (data.loveLetter) {
+        setText('[data-about-love-label]', data.loveLetter.label);
+        setText('[data-about-love-quote]', data.loveLetter.quote);
+        setText('[data-about-love-footer]', data.loveLetter.footer);
+      }
+
+      // ----- Contact -----
+      if (data.contact) {
+        setHTML('[data-about-contact-title]', data.contact.title);
+        setText('[data-about-contact-sub]', data.contact.sub);
+        const primary = document.querySelector('[data-about-contact-primary]');
+        if (primary) {
+          if (data.contact.primaryCtaLabel) {
+            // Preserve the trailing arrow SVG
+            const svg = primary.querySelector('svg');
+            primary.textContent = data.contact.primaryCtaLabel + ' ';
+            if (svg) primary.appendChild(svg);
+          }
+          if (data.contact.primaryCtaHref) primary.setAttribute('href', data.contact.primaryCtaHref);
+        }
+        const secondary = document.querySelector('[data-about-contact-secondary]');
+        if (secondary && data.contact.secondaryCtaLabel) {
+          secondary.textContent = data.contact.secondaryCtaLabel;
+        }
       }
     } catch (_) { /* silent — leave the HTML fallback in place */ }
   }
+
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"']/g, (c) => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+  }
+  function escapeAttr(s) { return escapeHTML(s); }
 
   function setText(sel, value) {
     if (value == null) return;

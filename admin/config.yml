@@ -138,7 +138,10 @@ collections:
         fields:
           - { name: portrait, label: Portrait image, widget: image }
           - { name: portraitAlt, label: Portrait alt text, widget: string }
-          - { name: headline, label: Headline, widget: string }
+          - name: headline
+            label: Headline
+            widget: string
+            hint: 'Wrap italic words with <em> tags, like: Hi, I''m Abby — <em>so glad you''re here.</em>'
           - { name: lead, label: Lead paragraph, widget: text }
           - { name: body, label: Body paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
           - name: locations
@@ -147,12 +150,27 @@ collections:
             fields:
               - { name: label, label: Label, widget: string }
               - { name: value, label: Value, widget: string }
-          - name: family
-            label: My Family photos
+
+          - name: aboutMore
+            label: '"A Little More About Me" section intro'
             widget: object
             required: false
-            hint: 'Photos shown in the "My family" section. Leave any blank to keep the placeholder.'
             fields:
+              - { name: label, label: 'Small label above title (e.g. "A Little More About Me")', widget: string, required: false }
+              - name: title
+                label: Section title
+                widget: string
+                required: false
+                hint: 'Wrap italic words with <em> tags.'
+
+          - name: family
+            label: My Family (heading, text, photos)
+            widget: object
+            required: false
+            hint: 'The "My family" section — heading, story paragraphs, and photos. Leave any photo blank to keep the placeholder.'
+            fields:
+              - { name: heading, label: 'Section heading (e.g. "My family")', widget: string, required: false }
+              - { name: text, label: 'Family story paragraphs', widget: list, required: false, field: { name: paragraph, label: Paragraph, widget: text } }
               - { name: photo1, label: Photo 1 (tall photo on the left), widget: image, required: false }
               - { name: photo1Alt, label: Photo 1 alt text, widget: string, required: false }
               - { name: photo1Caption, label: Photo 1 caption, widget: string, required: false, default: 'Peyton & I' }
@@ -162,6 +180,48 @@ collections:
               - { name: photo3, label: Photo 3 (bottom right), widget: image, required: false }
               - { name: photo3Alt, label: Photo 3 alt text, widget: string, required: false }
               - { name: photo3Caption, label: Photo 3 caption, widget: string, required: false, default: 'Oliver, Peyton & I' }
+
+          - name: funFacts
+            label: Fun facts (numbered tiles)
+            widget: object
+            required: false
+            fields:
+              - { name: eyebrow, label: 'Small label above tiles (e.g. "A few things to know")', widget: string, required: false }
+              - name: items
+                label: Fun fact tiles
+                widget: list
+                summary: '{{fields.number}} — {{fields.title}}'
+                fields:
+                  - { name: number, label: 'Number (e.g. "01")', widget: string, required: false }
+                  - { name: title, label: Tile title, widget: string }
+                  - { name: body, label: Tile body, widget: text }
+                  - { name: photo, label: Photo (optional — replaces the placeholder), widget: image, required: false }
+                  - { name: photoAlt, label: Photo alt text, widget: string, required: false }
+                  - { name: photoCaption, label: 'Placeholder caption (shown when there''s no photo)', widget: string, required: false }
+
+          - name: loveLetter
+            label: '"A love letter" testimonial'
+            widget: object
+            required: false
+            fields:
+              - { name: label, label: Small label above quote, widget: string, required: false, default: 'A love letter' }
+              - { name: quote, label: Testimonial quote, widget: text, required: false }
+              - { name: footer, label: 'Attribution (e.g. "— The Smiths")', widget: string, required: false }
+
+          - name: contact
+            label: Contact section (bottom of page)
+            widget: object
+            required: false
+            fields:
+              - name: title
+                label: Section title
+                widget: string
+                required: false
+                hint: 'Wrap italic words with <em> tags.'
+              - { name: sub, label: Sub-headline, widget: string, required: false }
+              - { name: primaryCtaLabel, label: 'Primary button label (e.g. "Start an inquiry")', widget: string, required: false }
+              - { name: primaryCtaHref, label: 'Primary button link (usually /inquire.html)', widget: string, required: false, default: '/inquire.html' }
+              - { name: secondaryCtaLabel, label: 'Secondary button label (e.g. "Follow on Instagram")', widget: string, required: false }
 
   # ============================================================
   # PRICING
