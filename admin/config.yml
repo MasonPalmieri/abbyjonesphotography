@@ -246,7 +246,7 @@ collections:
               - { name: label, label: 'Number label (e.g. "01")', widget: string, required: false }
               - { name: name, label: Section name, widget: string }
               - { name: startingAt, label: 'Starting price (e.g. "$2,250" — leave blank to hide)', widget: string, required: false }
-              - { name: priceNote, label: 'Price note (e.g. "Sessions starting at")', widget: string, required: false }
+              - { name: priceNote, label: 'Small text next to the section-header price (optional, leave blank to hide)', widget: string, required: false }
               - { name: sub, label: Sub-tagline (optional), widget: string, required: false }
               - { name: heroImage, label: Hero image (shown at top of this section), widget: image, required: false }
               - { name: heroImageAlt, label: Hero image alt text, widget: string, required: false }
@@ -261,7 +261,7 @@ collections:
                   - { name: label, label: 'Small label above name (e.g. "Collection 01")', widget: string, required: false }
                   - { name: name, label: 'Tier name (e.g. "The Signature")', widget: string }
                   - { name: price, label: 'Price (e.g. "$3,500")', widget: string, required: false }
-                  - { name: priceNote, label: 'Price note (e.g. "starting at")', widget: string, required: false, default: 'starting at' }
+                  - { name: priceNote, label: 'Small text next to the price (optional, e.g. "per hour")', widget: string, required: false }
                   - { name: featured, label: 'Highlight this tier as "Most Popular"?', widget: boolean, default: false }
                   - { name: description, label: One-line description, widget: text, required: false }
                   - { name: includes, label: 'What''s included (one bullet per line)', widget: list, required: false, field: { name: item, label: Bullet, widget: string } }
