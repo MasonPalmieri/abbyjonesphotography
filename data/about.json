@@ -9,9 +9,18 @@
     "When I'm not shooting, you'll usually find me exploring somewhere new with a coffee in one hand and my camera in the other — always chasing better light and quieter stories."
   ],
   "locations": [
-    { "label": "Based In", "value": "Buffalo, NY" },
-    { "label": "Also In", "value": "Germany" },
-    { "label": "Available", "value": "Worldwide" }
+    {
+      "label": "Based In",
+      "value": "Buffalo, NY"
+    },
+    {
+      "label": "Also In",
+      "value": "Germany"
+    },
+    {
+      "label": "Available",
+      "value": "Worldwide"
+    }
   ],
   "aboutMore": {
     "label": "A Little More About Me",
@@ -38,42 +47,42 @@
     "items": [
       {
         "number": "01",
+        "title": "Hockey has always been a big part of my life",
+        "body": "I played Division I ice hockey at Penn State — and these days, I'm usually cheering on my husband, who plays professionally in Germany.",
         "photo": "",
         "photoAlt": "",
-        "photoCaption": "Penn State hockey",
-        "title": "Hockey has always been a big part of my life",
-        "body": "I played Division I ice hockey at Penn State — and these days, I'm usually cheering on my husband, who plays professionally in Germany."
+        "photoCaption": "Penn State hockey"
       },
       {
         "number": "02",
+        "title": "The youngest of four girls",
+        "body": "And now the very proud aunt to four nieces and four nephews.",
         "photo": "",
         "photoAlt": "",
-        "photoCaption": "Family photo",
-        "title": "The youngest of four girls",
-        "body": "And now the very proud aunt to four nieces and four nephews."
+        "photoCaption": "Family photo"
       },
       {
         "number": "03",
+        "title": "Pizza, always",
+        "body": "I could genuinely eat pizza every day, at any time of day.",
         "photo": "",
         "photoAlt": "",
-        "photoCaption": "Pizza",
-        "title": "Pizza, always",
-        "body": "I could genuinely eat pizza every day, at any time of day."
+        "photoCaption": "Pizza"
       },
       {
         "number": "04",
+        "title": "Always ready to go somewhere new",
+        "body": "Travel is one of my favorite things, whether it's exploring somewhere new in Europe or heading somewhere new with my camera.",
         "photo": "",
         "photoAlt": "",
-        "photoCaption": "Travel",
-        "title": "Always ready to go somewhere new",
-        "body": "Travel is one of my favorite things, whether it's exploring somewhere new in Europe or heading somewhere new with my camera."
+        "photoCaption": "Travel"
       }
     ]
   },
   "loveLetter": {
     "label": "A love letter",
-    "quote": "Testimonial coming soon — a short quote from a couple or family about how comfortable and fun the day felt.",
-    "footer": "— Coming soon"
+    "quote": "From the moment we met Abby, we knew we were in great hands. She captured every moment so beautifully and made us feel comfortable and relaxed all day long. Her attention to detail and ability to preserve the emotions of the day are unmatched. We truly couldn’t have picked a better photographer!",
+    "footer": "— Hannah & Matt"
   },
   "contact": {
     "title": "Let's tell <em>your story.</em>",
