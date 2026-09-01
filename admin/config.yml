@@ -91,6 +91,7 @@ collections:
                   - { name: description, label: Tile description, widget: text }
                   - { name: linkLabel, label: Link label, widget: string }
                   - { name: linkHref, label: Link, widget: string }
+                  - { name: bgImage, label: 'Background photo (optional, shown blurred behind the text)', widget: image, required: false, media_folder: '/media/home', public_folder: '/media/home' }
 
           - name: recentWork
             label: 'Recent Work (the photo grid section)'

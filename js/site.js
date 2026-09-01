@@ -353,11 +353,19 @@
             const title = node.querySelector('.service__title');
             const desc = node.querySelector('.service__desc');
             const link = node.querySelector('.service__link');
+            const bg = node.querySelector('[data-service-bg]');
             if (num && tile.number) num.textContent = tile.number;
             if (title && tile.title) title.textContent = tile.title;
             if (desc && tile.description) desc.textContent = tile.description;
             if (link && tile.linkLabel) link.textContent = tile.linkLabel;
             if (link && tile.linkHref) link.setAttribute('href', tile.linkHref);
+            if (bg && tile.bgImage) {
+              bg.style.backgroundImage = `url("${tile.bgImage}")`;
+              node.classList.add('service--has-bg');
+            } else if (bg) {
+              bg.style.backgroundImage = '';
+              node.classList.remove('service--has-bg');
+            }
           });
         }
       }
