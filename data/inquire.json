@@ -1,10 +1,22 @@
 {
   "showPhotos": true,
   "photos": [
-    { "src": "", "alt": "" },
-    { "src": "", "alt": "" },
-    { "src": "", "alt": "" },
-    { "src": "", "alt": "" }
+    {
+      "src": "/assets/galleries/IMG_5443.jpeg",
+      "alt": "picking up and spinning bride"
+    },
+    {
+      "src": "/assets/galleries/IMG_4608.jpeg",
+      "alt": "Looking at one another on fence"
+    },
+    {
+      "src": "/assets/galleries/IMG_4310.jpeg",
+      "alt": "Kissing cheek"
+    },
+    {
+      "src": "/assets/galleries/IMG_3752.jpeg",
+      "alt": "holding hands"
+    }
   ],
   "eyebrow": "Get in touch",
   "headline": "I can't wait to <em>hear from you.</em>",
