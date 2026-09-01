@@ -68,24 +68,32 @@
     });
   }
 
+  let _revealIO = null;
+  const _revealSeen = new WeakSet();
   function wireReveal() {
     const els = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window) || !els.length) {
       els.forEach((el) => el.classList.add('is-in'));
       return;
     }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-in');
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    els.forEach((el) => io.observe(el));
+    if (!_revealIO) {
+      _revealIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              _revealIO.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+    }
+    els.forEach((el) => {
+      if (_revealSeen.has(el)) return;
+      _revealSeen.add(el);
+      _revealIO.observe(el);
+    });
   }
 
   function wireTypewriter() {
@@ -586,9 +594,11 @@
     // wireHome must run before typewriter so it can update data-words + textContent
     await wireHome();
     wireTypewriter();
-    wireAbout();
-    wireTestimonials();
-    wireInquire();
+    await wireAbout();
+    await wireTestimonials();
+    await wireInquire();
+    // Re-observe any .reveal elements injected during hydration
+    wireReveal();
   }
 
   if (document.readyState === 'loading') {
