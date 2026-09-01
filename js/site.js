@@ -592,13 +592,16 @@
     await Promise.all(jobs);
     wireReveal();
     // wireHome must run before typewriter so it can update data-words + textContent
-    await wireHome();
+    try { await wireHome(); } catch (e) { console.warn('wireHome failed', e); }
     wireTypewriter();
-    await wireAbout();
-    await wireTestimonials();
-    await wireInquire();
+    try { await wireAbout(); } catch (e) { console.warn('wireAbout failed', e); }
+    try { await wireTestimonials(); } catch (e) { console.warn('wireTestimonials failed', e); }
+    try { await wireInquire(); } catch (e) { console.warn('wireInquire failed', e); }
     // Re-observe any .reveal elements injected during hydration
     wireReveal();
+    // Belt-and-suspenders: some browsers don't fire IO callback immediately for
+    // freshly-observed elements already in the viewport. Poke it after a rAF.
+    requestAnimationFrame(() => wireReveal());
   }
 
   if (document.readyState === 'loading') {
