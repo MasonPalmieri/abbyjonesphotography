@@ -104,14 +104,6 @@ collections:
               - { name: buttonLabel, label: Button label, widget: string, default: 'Explore all galleries' }
               - { name: buttonHref, label: Button link, widget: string, default: '/galleries.html' }
 
-          - name: loveLetter
-            label: 'Love letter (single home-page testimonial)'
-            widget: object
-            fields:
-              - { name: label, label: 'Small section label (e.g. "A love letter")', widget: string }
-              - { name: quote, label: Quote, widget: text }
-              - { name: footer, label: Attribution / footer, widget: string }
-
           - name: contact
             label: 'Contact (Let''s tell your story)'
             widget: object
