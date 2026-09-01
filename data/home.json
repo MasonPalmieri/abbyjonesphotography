@@ -35,14 +35,16 @@
         "title": "Weddings & Elopements",
         "description": "From intimate elopements to full wedding-day celebrations — each collection is thoughtfully designed to document your day as it naturally unfolds.",
         "linkLabel": "View weddings & elopements",
-        "linkHref": "/galleries/weddings.html"
+        "linkHref": "/galleries/weddings.html",
+        "bgImage": "/media/home/IMG_5973.jpeg"
       },
       {
         "number": "02",
         "title": "Sessions",
         "description": "Couples, engagements, maternity, families, seniors, and milestones — relaxed, intentional portraits of the season you're in.",
         "linkLabel": "View sessions",
-        "linkHref": "/galleries/sessions.html"
+        "linkHref": "/galleries/sessions.html",
+        "bgImage": "/media/home/IMG_5974.jpeg"
       }
     ]
   },
