@@ -19,30 +19,21 @@
 
   <nav class="nav nav--solid" data-partial="nav"></nav>
 
-  <section class="section inquire">
-    <div class="container">
-      <div class="inquire__grid">
-        <div class="inquire__intro">
-          <p class="section__label reveal">Get in touch</p>
-          <h1 class="section__title reveal">I can't wait to <em>hear from you.</em></h1>
-          <p class="reveal">I'm almost always refreshing my inbox, so you'll hear from me within 48 hours. But if it's a weekend, I'm out snapping wedding pics and capturing memories, so you'll hear from me at the latest by Monday.</p>
-          <p class="reveal">No detail is too small — the more you share, the better I can tailor a proposal to fit the day you're planning.</p>
-          <div class="inquire__detail reveal">
-            <div>
-              <span class="inquire__detail-label">Email directly</span>
-              <span class="inquire__detail-value"><a href="mailto:abbyjonesphotography1@gmail.com">abbyjonesphotography1@gmail.com</a></span>
-            </div>
-            <div>
-              <span class="inquire__detail-label">Instagram</span>
-              <span class="inquire__detail-value"><a href="https://instagram.com/abbyjonesphotography" target="_blank" rel="noopener noreferrer">@abbyjonesphotography</a></span>
-            </div>
-            <div>
-              <span class="inquire__detail-label">Now Booking</span>
-              <span class="inquire__detail-value">2026 — 2027</span>
-            </div>
-          </div>
-        </div>
+  <!-- Top photo strip (4 vertical photos) -->
+  <section class="inquire-photos" data-inquire-photos hidden>
+    <div data-inquire-photos-grid class="inquire-photos__grid"></div>
+  </section>
 
+  <section class="section inquire">
+    <div class="container inquire__container">
+      <div class="inquire__head">
+        <p class="section__label reveal" data-inquire-eyebrow>Get in touch</p>
+        <h1 class="section__title reveal" data-inquire-headline>I can't wait to <em>hear from you.</em></h1>
+        <p class="reveal inquire__lead" data-inquire-lead>I'm almost always refreshing my inbox, so you'll hear from me within 48 hours. But if it's a weekend, I'm out snapping wedding pics and capturing memories, so you'll hear from me at the latest by Monday.</p>
+        <p class="reveal inquire__body" data-inquire-body>No detail is too small — the more you share, the better I can tailor a proposal to fit the day you're planning.</p>
+      </div>
+
+      <div class="inquire__form-wrap">
         <form class="form reveal" data-inquiry data-fallback-email="abbyjonesphotography1@gmail.com" novalidate>
           <div class="form__row">
             <div class="form__field">
@@ -129,6 +120,21 @@
           <button type="submit" class="form__submit">Send inquiry</button>
           <div class="form__status" role="status" aria-live="polite"></div>
         </form>
+      </div>
+
+      <div class="inquire__detail reveal" data-inquire-details>
+        <div>
+          <span class="inquire__detail-label">Email directly</span>
+          <span class="inquire__detail-value"><a data-inquire-email href="mailto:abbyjonesphotography1@gmail.com">abbyjonesphotography1@gmail.com</a></span>
+        </div>
+        <div>
+          <span class="inquire__detail-label">Instagram</span>
+          <span class="inquire__detail-value"><a data-inquire-instagram href="https://instagram.com/abbyjonesphotography" target="_blank" rel="noopener noreferrer">@abbyjonesphotography</a></span>
+        </div>
+        <div>
+          <span class="inquire__detail-label">Now Booking</span>
+          <span class="inquire__detail-value" data-inquire-booking>2026 — 2027</span>
+        </div>
       </div>
     </div>
   </section>

@@ -224,6 +224,44 @@ collections:
               - { name: secondaryCtaLabel, label: 'Secondary button label (e.g. "Follow on Instagram")', widget: string, required: false }
 
   # ============================================================
+  # INQUIRE PAGE
+  # ============================================================
+  - name: inquire
+    label: Inquire Page
+    description: 'The Inquire page (abbyjonesphotography.com/inquire) — top photo strip, heading, and contact details.'
+    files:
+      - name: inquire
+        label: Inquire Page content
+        file: data/inquire.json
+        format: json
+        fields:
+          - { name: showPhotos, label: 'Show photo strip at the top?', widget: boolean, default: true }
+          - name: photos
+            label: 'Photo strip (4 photos across the top of the page)'
+            widget: list
+            required: false
+            max: 4
+            summary: '{{fields.alt}}'
+            hint: 'Best with 4 vertical (portrait) photos. Fewer works too; the row will stretch to fill.'
+            fields:
+              - { name: src, label: Photo, widget: image }
+              - { name: alt, label: Alt text (describe the photo), widget: string, required: false }
+          - { name: eyebrow, label: 'Small label above the heading (e.g. "Get in touch")', widget: string, required: false }
+          - { name: headline, label: 'Heading (wrap italic words in <em> tags, e.g. "I can''t wait to <em>hear from you.</em>")', widget: string, required: false }
+          - { name: lead, label: First paragraph, widget: text, required: false }
+          - { name: body, label: Second paragraph, widget: text, required: false }
+          - { name: showDetails, label: 'Show contact details block below the form?', widget: boolean, default: true }
+          - name: details
+            label: Contact details (shown below the form)
+            widget: object
+            required: false
+            fields:
+              - { name: email, label: Contact email, widget: string, required: false }
+              - { name: instagramHandle, label: 'Instagram handle (e.g. "@abbyjonesphotography")', widget: string, required: false }
+              - { name: instagramUrl, label: Instagram profile URL, widget: string, required: false }
+              - { name: bookingYears, label: 'Now booking (e.g. "2026 — 2027")', widget: string, required: false }
+
+  # ============================================================
   # PRICING
   # ============================================================
   - name: pricing

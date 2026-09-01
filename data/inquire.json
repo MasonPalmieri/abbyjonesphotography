@@ -1,0 +1,20 @@
+{
+  "showPhotos": true,
+  "photos": [
+    { "src": "", "alt": "" },
+    { "src": "", "alt": "" },
+    { "src": "", "alt": "" },
+    { "src": "", "alt": "" }
+  ],
+  "eyebrow": "Get in touch",
+  "headline": "I can't wait to <em>hear from you.</em>",
+  "lead": "I'm almost always refreshing my inbox, so you'll hear from me within 48 hours. But if it's a weekend, I'm out snapping wedding pics and capturing memories, so you'll hear from me at the latest by Monday.",
+  "body": "No detail is too small — the more you share, the better I can tailor a proposal to fit the day you're planning.",
+  "showDetails": true,
+  "details": {
+    "email": "abbyjonesphotography1@gmail.com",
+    "instagramHandle": "@abbyjonesphotography",
+    "instagramUrl": "https://instagram.com/abbyjonesphotography",
+    "bookingYears": "2026 — 2027"
+  }
+}

@@ -490,6 +490,53 @@
     }
   }
 
+  async function wireInquire() {
+    // Only run on the inquire page (photo strip mount is unique to inquire.html)
+    const photosRoot = document.querySelector('[data-inquire-photos]');
+    if (!photosRoot) return;
+    try {
+      const res = await fetch('/data/inquire.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      const d = await res.json();
+
+      // Photo strip
+      const grid = photosRoot.querySelector('[data-inquire-photos-grid]');
+      const photos = Array.isArray(d.photos) ? d.photos.filter((p) => p && p.src) : [];
+      if (d.showPhotos !== false && photos.length && grid) {
+        grid.innerHTML = photos.slice(0, 4).map((p) =>
+          '<img src="' + escapeAttr(p.src) + '" alt="' + escapeAttr(p.alt || '') + '" loading="lazy">'
+        ).join('');
+        photosRoot.hidden = false;
+      } else {
+        photosRoot.hidden = true;
+      }
+
+      // Head copy
+      setText('[data-inquire-eyebrow]', d.eyebrow);
+      setHTML('[data-inquire-headline]', d.headline);
+      setText('[data-inquire-lead]', d.lead);
+      setText('[data-inquire-body]', d.body);
+
+      // Details block
+      const detailsRoot = document.querySelector('[data-inquire-details]');
+      if (d.showDetails === false && detailsRoot) {
+        detailsRoot.hidden = true;
+      } else if (d.details) {
+        const emailA = document.querySelector('[data-inquire-email]');
+        if (emailA && d.details.email) {
+          emailA.textContent = d.details.email;
+          emailA.setAttribute('href', 'mailto:' + d.details.email);
+        }
+        const igA = document.querySelector('[data-inquire-instagram]');
+        if (igA) {
+          if (d.details.instagramHandle) igA.textContent = d.details.instagramHandle;
+          if (d.details.instagramUrl) igA.setAttribute('href', d.details.instagramUrl);
+        }
+        setText('[data-inquire-booking]', d.details.bookingYears);
+      }
+    } catch (_) { /* silent — leave the HTML fallback in place */ }
+  }
+
   async function boot() {
     // Load partials in parallel
     const navRoot = document.querySelector('[data-partial="nav"]');
@@ -504,6 +551,7 @@
     wireTypewriter();
     wireAbout();
     wireTestimonials();
+    wireInquire();
   }
 
   if (document.readyState === 'loading') {
