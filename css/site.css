@@ -288,8 +288,9 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== ABOUT — A LITTLE MORE ABOUT ME ===== */
 .about-more { background: var(--ivory); }
-.about-more__intro { max-width: 60ch; margin: 0 auto 72px; text-align: center; }
-.about-more__intro .section__title { color: var(--ink-soft); }
+.about-more__intro { max-width: 60ch; margin: 0 auto 48px; text-align: center; }
+.about-more__intro .section__label { margin-bottom: 12px; }
+.about-more__intro .section__title { color: var(--ink-soft); font-size: clamp(26px, 3vw, 34px); }
 .family { margin: 0 auto 96px; max-width: 1180px; }
 .family__heading {
   font-family: var(--serif);
@@ -453,23 +454,27 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   min-width: 0;
 }
-.tslide__photos {
+/* Side-by-side layout when a photo is present */
+.tslide--has-photo {
   display: grid;
-  gap: 10px;
-  margin: 0 auto 28px;
-  width: 100%;
-  max-width: 720px;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px 40px 0;
 }
-.tslide__photos--1 { grid-template-columns: minmax(0, 420px); justify-content: center; }
-.tslide__photos--2 { grid-template-columns: 1fr 1fr; }
-.tslide__photos--3 { grid-template-columns: 1fr 1fr 1fr; }
-.tslide__photos img {
+.tslide__photo img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 6px;
   display: block;
 }
+.tslide__body { min-width: 0; }
+.tslide--has-photo .tslide__quote { margin: 0; }
+.tslide--has-photo .tslide__meta { text-align: left; }
 .tslide__quote {
   max-width: 60ch;
   margin: 0 auto;
@@ -536,10 +541,15 @@ a { color: inherit; text-decoration: none; }
 .tdot:hover { background: var(--muted); }
 .tdot--active { background: var(--sage); transform: scale(1.25); }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .tslide { padding: 8px 20px 0; }
-  .tslide__photos--3 { grid-template-columns: 1fr 1fr; }
-  .tslide__photos--3 img:nth-child(3) { display: none; }
+  .tslide--has-photo {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+    padding: 8px 20px 0;
+  }
+  .tslide__photo { max-width: 240px; margin: 0 auto; }
 }
 
 /* ===== SERVICES ===== */

@@ -421,21 +421,24 @@
 
     // Build slides
     track.innerHTML = items.map((it) => {
-      const photos = Array.isArray(it.photos) ? it.photos.filter((p) => p && p.src) : [];
-      const photoHTML = photos.length
-        ? '<div class="tslide__photos tslide__photos--' + Math.min(photos.length, 3) + '">' +
-            photos.slice(0, 3).map((p) =>
-              '<img src="' + escapeHTML(p.src) + '" alt="' + escapeHTML(p.alt || '') + '" loading="lazy">'
-            ).join('') +
-          '</div>'
+      // Support legacy photos[] (array) OR new photo (single object). Take the first available src.
+      let photoSrc = '', photoAlt = '';
+      if (it.photo && it.photo.src) { photoSrc = it.photo.src; photoAlt = it.photo.alt || ''; }
+      else if (Array.isArray(it.photos) && it.photos.length && it.photos[0].src) { photoSrc = it.photos[0].src; photoAlt = it.photos[0].alt || ''; }
+      const photoHTML = photoSrc
+        ? '<div class="tslide__photo"><img src="' + escapeHTML(photoSrc) + '" alt="' + escapeHTML(photoAlt) + '" loading="lazy"></div>'
         : '';
       const meta = [it.author, it.sessionType].filter(Boolean).map(escapeHTML).join(' · ');
       // Strip surrounding quotes if the CMS content included them; we add typographic ones via CSS
       const cleanQuote = String(it.quote || '').replace(/^["“”]|["“”]$/g, '').trim();
-      return '<article class="tslide">' +
+      const bodyHTML =
+        '<div class="tslide__body">' +
+          '<blockquote class="tslide__quote"><p>' + escapeHTML(cleanQuote) + '</p></blockquote>' +
+          (meta ? '<footer class="tslide__meta">— ' + meta + '</footer>' : '') +
+        '</div>';
+      return '<article class="tslide' + (photoHTML ? ' tslide--has-photo' : '') + '">' +
         photoHTML +
-        '<blockquote class="tslide__quote"><p>' + escapeHTML(cleanQuote) + '</p></blockquote>' +
-        (meta ? '<footer class="tslide__meta">— ' + meta + '</footer>' : '') +
+        bodyHTML +
         '</article>';
     }).join('');
 
@@ -487,6 +490,32 @@
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(updateDots, 60);
       });
+    }
+
+    // Auto-advance every 7 seconds. Pause on user interaction (hover, focus, or manual scroll).
+    let paused = false;
+    let userInteracted = false;
+    const AUTO_MS = 7000;
+    function autoTick() {
+      if (paused || userInteracted) return;
+      const idx = currentIndex();
+      const nextIdx = (idx + 1) % items.length;
+      scrollToIndex(nextIdx);
+    }
+    const autoTimer = setInterval(autoTick, AUTO_MS);
+    mount.addEventListener('mouseenter', () => { paused = true; });
+    mount.addEventListener('mouseleave', () => { paused = false; });
+    mount.addEventListener('focusin', () => { paused = true; });
+    mount.addEventListener('focusout', () => { paused = false; });
+    // If the user clicks prev/next or a dot, stop auto-advancing entirely so we don't fight them.
+    [prev, next].forEach((btn) => { if (btn) btn.addEventListener('click', () => { userInteracted = true; }); });
+    if (dotsWrap) dotsWrap.addEventListener('click', () => { userInteracted = true; });
+    // Also stop auto-advance if the user swipes/scrolls the track directly.
+    let touchTimer;
+    track.addEventListener('pointerdown', () => { userInteracted = true; });
+    // Respect reduced-motion preference — no auto-advance if the user opted out.
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      clearInterval(autoTimer);
     }
   }
 
