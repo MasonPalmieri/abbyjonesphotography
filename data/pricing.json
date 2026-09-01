@@ -4,7 +4,7 @@
     {
       "id": "weddings",
       "label": "01",
-      "name": "Weddings + Elopements",
+      "name": "Weddings",
       "startingAt": "$2,250",
       "priceNote": "Wedding collections beginning at",
       "sub": "",
@@ -74,11 +74,6 @@
             "Sneak peeks within one week",
             "Professionally edited, high-resolution images"
           ]
-        },
-        {
-          "heading": "Elopements",
-          "note": "Planning an elopement? Custom coverage is available based on the details of your day.",
-          "items": []
         }
       ],
       "fineprint": "Complete wedding collection details and pricing will be sent upon inquiry.",
@@ -88,8 +83,38 @@
       }
     },
     {
-      "id": "portrait-sessions",
+      "id": "elopments",
       "label": "02",
+      "name": "Elopements",
+      "startingAt": "Custom Pricing",
+      "priceNote": "",
+      "sub": "",
+      "heroImage": "/assets/galleries/IMG_6007.jpeg",
+      "heroImageAlt": "Kissing in front of church",
+      "description": "",
+      "tiers": [],
+      "groups": [
+        {
+          "heading": "Your session includes",
+          "note": "",
+          "items": [
+            "Professionally edited, high-resolution images",
+            "Personalized timeline planning",
+            "Sneak peeks within one week",
+            "Travel options available",
+            "Online gallery"
+          ]
+        }
+      ],
+      "fineprint": "",
+      "cta": {
+        "label": "Inquire here",
+        "href": "/inquire.html"
+      }
+    },
+    {
+      "id": "portrait-sessions",
+      "label": "03",
       "name": "Portrait Sessions",
       "startingAt": "$275",
       "priceNote": "Sessions starting at",
