@@ -6,7 +6,7 @@
       "label": "01",
       "name": "Weddings + Elopements",
       "startingAt": "$2,250",
-      "priceNote": "",
+      "priceNote": "Wedding collections beginning at",
       "sub": "",
       "heroImage": "/assets/galleries/IMG_5937.jpeg",
       "heroImageAlt": "",
@@ -18,46 +18,50 @@
           "price": "$2,250",
           "priceNote": "",
           "featured": false,
-          "description": "Small weddings, elopements, and courthouse-to-dinner days.",
+          "description": "",
           "includes": [
-            "Up to 6 hours of coverage",
             "One photographer",
-            "Private online gallery (min. 400 images)",
-            "Print release for personal use",
-            "Six-week delivery"
+            "Up to 6 hours of coverage",
+            "350+ professionally edited, high-resolution digital images",
+            "Personalized wedding day timeline planning",
+            "Complimentary engagement session",
+            "Sneak peeks delivered within one week",
+            "Online Gallery"
           ]
         },
         {
           "label": "Collection 02 · Most Popular",
           "name": "The Signature",
-          "price": "$3,500",
+          "price": "$3,000",
           "priceNote": "",
           "featured": true,
-          "description": "Full wedding-day storytelling from getting ready to the last dance.",
+          "description": "",
           "includes": [
-            "Up to 9 hours of coverage",
-            "One photographer",
+            "Second Photographer Included",
+            "Up to 8 hours of wedding day coverage",
+            "450+ professionally edited, high-resolution digital images",
+            "Personalized wedding day timeline planning",
             "Complimentary engagement session",
-            "Private online gallery (min. 700 images)",
-            "Print release for personal use",
-            "Six-week delivery"
+            "Sneak peeks delivered within one week",
+            "Online Gallery"
           ]
         },
         {
           "label": "Collection 03",
           "name": "The Full Story",
-          "price": "$5,000",
+          "price": "$3,500",
           "priceNote": "",
           "featured": false,
-          "description": "For celebrations with multiple events, travel, or a large guest count.",
+          "description": "",
           "includes": [
-            "Up to 12 hours of coverage",
+            "Up to 10 hours of coverage",
             "Second photographer included",
+            "Up to 10 hours of wedding day coverage",
+            "700+ professionally edited, high-resolution digital images",
+            "Personalized wedding day timeline planning",
             "Complimentary engagement session",
-            "Private online gallery (min. 900 images)",
-            "Rehearsal-dinner or welcome-party coverage",
-            "Print release for personal use",
-            "Six-week delivery"
+            "Sneak peeks delivered within one week",
+            "Online Gallery"
           ]
         }
       ],
@@ -88,11 +92,12 @@
       "label": "02",
       "name": "Portrait Sessions",
       "startingAt": "$275",
-      "priceNote": "",
+      "priceNote": "Sessions starting at",
       "sub": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
       "heroImage": "/assets/galleries/IMG_5897.jpeg",
-      "heroImageAlt": "",
+      "heroImageAlt": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
       "description": "Whether you're celebrating something big or simply want to remember the season you're in, portrait sessions are a relaxed and intentional way to document the people and moments that matter most.",
+      "tiers": [],
       "groups": [
         {
           "heading": "Your session includes",
