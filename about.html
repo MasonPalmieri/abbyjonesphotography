@@ -120,14 +120,28 @@
     </div>
   </section>
 
-  <!-- Love letter (single testimonial) -->
+  <!-- Love letter (single testimonial with photo) -->
   <section class="section loveletter">
     <div class="container">
       <p class="section__label reveal" data-about-love-label>A love letter</p>
-      <blockquote class="loveletter__quote reveal">
-        <p data-about-love-quote>Testimonial coming soon — a short quote from a couple or family about how comfortable and fun the day felt.</p>
-        <footer data-about-love-footer>— Coming soon</footer>
-      </blockquote>
+      <article class="tslide tslide--has-photo tslide--single reveal">
+        <figure class="tslide__photo" data-about-love-photo-figure>
+          <img data-about-love-photo src="" alt="" loading="lazy">
+        </figure>
+        <div class="tslide__body">
+          <blockquote class="tslide__quote">
+            <p data-about-love-quote>Testimonial coming soon — a short quote from a couple or family about how comfortable and fun the day felt.</p>
+          </blockquote>
+          <p class="tslide__meta" data-about-love-footer>— Coming soon</p>
+        </div>
+      </article>
+      <div class="loveletter__cta reveal">
+        <p class="loveletter__cta-lead">Think we'd be a good fit?</p>
+        <p class="loveletter__cta-sub">I'd love to hear what you're planning.</p>
+        <a href="/inquire.html" class="loveletter__cta-btn">Inquire about your date
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -148,6 +162,6 @@
 
   <footer class="footer" data-partial="footer"></footer>
 
-  <script src="js/site.js?v=20260901"></script>
+  <script src="js/site.js?v=20260901b"></script>
 </body>
 </html>

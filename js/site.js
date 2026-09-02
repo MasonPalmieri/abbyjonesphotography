@@ -256,6 +256,18 @@
         setText('[data-about-love-label]', data.loveLetter.label);
         setText('[data-about-love-quote]', data.loveLetter.quote);
         setText('[data-about-love-footer]', data.loveLetter.footer);
+        const photoImg = document.querySelector('[data-about-love-photo]');
+        const photoFig = document.querySelector('[data-about-love-photo-figure]');
+        const slide = photoFig ? photoFig.closest('.tslide') : null;
+        if (photoImg && data.loveLetter.photo) {
+          photoImg.setAttribute('src', data.loveLetter.photo);
+          photoImg.setAttribute('alt', data.loveLetter.photoAlt || '');
+          if (photoFig) photoFig.style.display = '';
+          if (slide) slide.classList.add('tslide--has-photo');
+        } else if (photoFig) {
+          photoFig.style.display = 'none';
+          if (slide) slide.classList.remove('tslide--has-photo');
+        }
       }
 
       // ----- Contact -----
@@ -350,29 +362,22 @@
       if (d.services) {
         setText('[data-home-services-label]', d.services.label);
         setHTML('[data-home-services-title]', d.services.title);
-        setText('[data-home-services-desc]', d.services.description);
         const tilesRoot = document.querySelector('[data-home-services-tiles]');
         if (tilesRoot && Array.isArray(d.services.tiles)) {
           const existing = tilesRoot.querySelectorAll('.service');
           d.services.tiles.forEach((tile, i) => {
             const node = existing[i];
             if (!node) return;
-            const num = node.querySelector('.service__num');
             const title = node.querySelector('.service__title');
             const desc = node.querySelector('.service__desc');
             const link = node.querySelector('.service__link');
-            const bg = node.querySelector('[data-service-bg]');
-            if (num && tile.number) num.textContent = tile.number;
+            const photo = node.querySelector('[data-service-photo]');
             if (title && tile.title) title.textContent = tile.title;
             if (desc && tile.description) desc.textContent = tile.description;
-            if (link && tile.linkLabel) link.textContent = tile.linkLabel;
             if (link && tile.linkHref) link.setAttribute('href', tile.linkHref);
-            if (bg && tile.bgImage) {
-              bg.style.backgroundImage = `url("${tile.bgImage}")`;
-              node.classList.add('service--has-bg');
-            } else if (bg) {
-              bg.style.backgroundImage = '';
-              node.classList.remove('service--has-bg');
+            if (photo && tile.photo) {
+              photo.setAttribute('src', tile.photo);
+              photo.setAttribute('alt', tile.photoAlt || tile.title || '');
             }
           });
         }

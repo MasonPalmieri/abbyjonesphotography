@@ -25,14 +25,16 @@
     return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   }
 
-  function renderSection(sec, i) {
-    const wrap = el('article', 'psec reveal' + (i === 0 ? ' psec--open' : ''));
+  function renderSection(sec, i, forceOpenId) {
+    const shouldOpen = forceOpenId ? (sec.id === forceOpenId) : (i === 0);
+    const wrap = el('article', 'psec reveal' + (shouldOpen ? ' psec--open' : ''));
     wrap.dataset.sectionId = sec.id || '';
+    if (sec.id) wrap.id = sec.id;
 
     // Header (clickable to toggle)
     const head = el('button', 'psec__head');
     head.type = 'button';
-    head.setAttribute('aria-expanded', i === 0 ? 'true' : 'false');
+    head.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
     head.innerHTML =
       (sec.label ? '<span class="psec__label">' + escapeHtml(sec.label) + '</span>' : '') +
       '<h2 class="psec__name">' + escapeHtml(sec.name || '') + '</h2>' +
@@ -171,8 +173,21 @@
 
       const sectionsMount = mount.querySelector('[data-pricing-sections]');
       if (sectionsMount && Array.isArray(data.sections)) {
+        // If URL has a hash matching a section id, open that section instead of the first one
+        const hash = (location.hash || '').replace(/^#/, '');
+        const hashMatch = hash && data.sections.some((s) => s.id === hash) ? hash : '';
         sectionsMount.innerHTML = '';
-        data.sections.forEach((s, i) => sectionsMount.appendChild(renderSection(s, i)));
+        data.sections.forEach((s, i) => sectionsMount.appendChild(renderSection(s, i, hashMatch)));
+        // After render, scroll the targeted section into view (with nav offset)
+        if (hashMatch) {
+          const target = document.getElementById(hashMatch);
+          if (target) {
+            requestAnimationFrame(() => {
+              const y = target.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            });
+          }
+        }
       }
 
       if (window.AJP && window.AJP.wireReveal) window.AJP.wireReveal();

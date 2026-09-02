@@ -56,13 +56,6 @@ collections:
               - { name: ctaLabel, label: Button label, widget: string, default: 'Inquire about your date' }
               - { name: ctaHref, label: Button link, widget: string, default: '/inquire.html' }
 
-          - name: intro
-            label: 'Intro quote (small section below hero)'
-            widget: object
-            fields:
-              - { name: quote, label: Quote, widget: text }
-              - { name: attribution, label: Attribution, widget: string }
-
           - name: aboutPreview
             label: 'About preview (short intro that links to the About page)'
             widget: object
@@ -75,23 +68,21 @@ collections:
               - { name: linkHref, label: Link, widget: string, default: '/about.html' }
 
           - name: services
-            label: 'Services (Two ways to work together)'
+            label: 'Services (What I photograph)'
             widget: object
             fields:
-              - { name: label, label: 'Small section label (e.g. "The Experience")', widget: string }
+              - { name: label, label: 'Small section label (e.g. "What I photograph")', widget: string }
               - { name: title, label: 'Section title (use <em>text</em> to italicize)', widget: string }
-              - { name: description, label: Section description, widget: text }
               - name: tiles
                 label: Service tiles
                 widget: list
                 summary: '{{fields.title}}'
                 fields:
-                  - { name: number, label: 'Number (e.g. "01")', widget: string }
                   - { name: title, label: Tile title, widget: string }
-                  - { name: description, label: Tile description, widget: text }
-                  - { name: linkLabel, label: Link label, widget: string }
-                  - { name: linkHref, label: Link, widget: string }
-                  - { name: bgImage, label: 'Background photo (optional, shown blurred behind the text)', widget: image, required: false, media_folder: '/media/home', public_folder: '/media/home' }
+                  - { name: description, label: 'Short tile blurb (one line)', widget: text }
+                  - { name: linkHref, label: 'View details link (e.g. /pricing.html#weddings)', widget: string }
+                  - { name: photo, label: 'Tile photo', widget: image, required: false, media_folder: '/media/home', public_folder: '/media/home' }
+                  - { name: photoAlt, label: 'Photo caption (for screen readers)', widget: string, required: false }
 
           - name: recentWork
             label: 'Recent Work (the photo grid section)'
@@ -200,6 +191,8 @@ collections:
               - { name: label, label: Small label above quote, widget: string, required: false, default: 'A love letter' }
               - { name: quote, label: Testimonial quote, widget: text, required: false }
               - { name: footer, label: 'Attribution (e.g. "— The Smiths")', widget: string, required: false }
+              - { name: photo, label: 'Photo (shown next to the quote)', widget: image, required: false }
+              - { name: photoAlt, label: Photo alt text, widget: string, required: false }
 
           - name: contact
             label: Contact section (bottom of page)
