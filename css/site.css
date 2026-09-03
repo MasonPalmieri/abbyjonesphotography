@@ -1502,7 +1502,7 @@ a { color: inherit; text-decoration: none; }
 .form__submit {
   margin-top: 8px;
   padding: 18px 36px;
-  background: var(--ink);
+  background: var(--sage);
   color: var(--ivory);
   font-size: 12px;
   letter-spacing: 0.24em;
@@ -1514,7 +1514,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--sans);
   width: 100%;
 }
-.form__submit:hover { background: var(--sage); transform: translateY(-2px); }
+.form__submit:hover { background: var(--ink); transform: translateY(-2px); }
 .form__submit:disabled { opacity: 0.5; cursor: wait; }
 .form__honey {
   position: absolute;
