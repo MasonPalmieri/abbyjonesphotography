@@ -79,9 +79,11 @@
     ]
   },
   "loveLetter": {
-    "label": "A love letter",
+    "label": "KIND WORDS",
     "quote": "From the moment we met Abby, we knew we were in great hands. She captured every moment so beautifully and made us feel comfortable and relaxed all day long. Her attention to detail and ability to preserve the emotions of the day are unmatched. We truly couldn’t have picked a better photographer!",
-    "footer": "— Hannah & Matt"
+    "footer": "— Hannah & Matt",
+    "photo": "/assets/galleries/IMG_3752.jpeg",
+    "photoAlt": ""
   },
   "contact": {
     "title": "Let's tell <em>your story.</em>",
