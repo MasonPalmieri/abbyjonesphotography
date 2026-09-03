@@ -304,8 +304,8 @@ a { color: inherit; text-decoration: none; }
 }
 .family__grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: clamp(32px, 4vw, 64px);
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(24px, 2.5vw, 40px);
   align-items: center;
   max-width: 1080px;
   margin: 0 auto;
