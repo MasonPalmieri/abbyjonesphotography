@@ -2,7 +2,7 @@
   "hero": {
     "backgroundImage": "/assets/galleries/IMG_5991.jpeg",
     "backgroundImageAlt": "Bride and groom in a sunset dip pose on a rooftop",
-    "eyebrow": "Weddings \u00b7 Elopements \u00b7 Sessions",
+    "eyebrow": "Weddings · Elopements · Portraits",
     "titleLead": "Capturing",
     "titleWords": [
       "life's most meaningful moments",
@@ -10,13 +10,13 @@
       "stories worth holding onto"
     ],
     "titleTrailing": ".",
-    "sub": "Bright, honest storytelling for the people you love most \u2014 based in Buffalo and Germany, traveling worldwide.",
+    "sub": "Bright, honest storytelling for the people you love most — based in Buffalo and Germany, traveling worldwide.",
     "ctaLabel": "Inquire about your date",
     "ctaHref": "/inquire.html"
   },
   "aboutPreview": {
-    "headline": "Hi, I'm Abby \u2014 <em>so glad you're here.</em>",
-    "lead": "I'm a wedding, couples, and family photographer with a deep love for the in-between moments \u2014 the laughter mid-toast, the quiet hand on a back, the look exchanged before anyone notices.",
+    "headline": "Hi, I'm Abby — <em>so glad you're here.</em>",
+    "lead": "I'm a wedding, couples, and family photographer with a deep love for the in-between moments — the laughter mid-toast, the quiet hand on a back, the look exchanged before anyone notices.",
     "body": "I'm based in Buffalo, New York, and spend part of each year living in Germany. Whether your story unfolds in Western New York, the Bavarian countryside, or somewhere in between, I'd love to be the one to tell it.",
     "linkLabel": "Read more about me",
     "linkHref": "/about.html"
@@ -51,17 +51,17 @@
   "recentWork": {
     "label": "Recent Work",
     "title": "A selection of <em>recent stories.</em>",
-    "description": "Real couples, real families, real days \u2014 and the moments that ended up meaning the most.",
+    "description": "Real couples, real families, real days — and the moments that ended up meaning the most.",
     "buttonLabel": "Explore all galleries",
     "buttonHref": "/galleries.html"
   },
   "contact": {
     "label": "Inquiries",
     "title": "Let's tell <em>your story.</em>",
-    "sub": "I'd love to hear what you're planning \u2014 wedding, engagement, family session, or something else entirely. Reach out and let's start a conversation.",
+    "sub": "I'd love to hear what you're planning — wedding, engagement, family session, or something else entirely. Reach out and let's start a conversation.",
     "primaryCtaLabel": "Start an inquiry",
     "primaryCtaHref": "/inquire.html",
     "secondaryCtaLabel": "Follow on Instagram",
-    "bookingYears": "2026 \u2014 2027"
+    "bookingYears": "2026 — 2027"
   }
 }
