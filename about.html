@@ -120,21 +120,26 @@
     </div>
   </section>
 
-  <!-- Love letter (single testimonial with photo) -->
-  <section class="section loveletter">
+  <!-- Love letter — testimonials carousel (matches home) -->
+  <section class="section loveletter" data-testimonials>
     <div class="container">
-      <p class="section__label reveal" data-about-love-label>A love letter</p>
-      <article class="tslide tslide--has-photo tslide--single reveal">
-        <figure class="tslide__photo" data-about-love-photo-figure>
-          <img data-about-love-photo src="" alt="" loading="lazy">
-        </figure>
-        <div class="tslide__body">
-          <blockquote class="tslide__quote">
-            <p data-about-love-quote>Testimonial coming soon — a short quote from a couple or family about how comfortable and fun the day felt.</p>
-          </blockquote>
-          <p class="tslide__meta" data-about-love-footer>— Coming soon</p>
+      <p class="section__label reveal" data-testimonials-label>Kind words</p>
+      <div class="tcarousel reveal">
+        <div class="tcarousel__track" data-testimonials-track>
+          <article class="tslide">
+            <blockquote class="tslide__quote"><p>More stories from past couples — coming soon.</p></blockquote>
+          </article>
         </div>
-      </article>
+        <div class="tcarousel__nav" data-testimonials-nav>
+          <button type="button" class="tnav" data-testimonials-prev aria-label="Previous testimonial">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3 L4 8 L10 13"/></svg>
+          </button>
+          <div class="tcarousel__dots" data-testimonials-dots></div>
+          <button type="button" class="tnav" data-testimonials-next aria-label="Next testimonial">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3 L12 8 L6 13"/></svg>
+          </button>
+        </div>
+      </div>
       <div class="loveletter__cta reveal">
         <p class="loveletter__cta-lead">Think we'd be a good fit?</p>
         <p class="loveletter__cta-sub">I'd love to hear what you're planning.</p>
