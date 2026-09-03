@@ -19,26 +19,43 @@
 
   <nav class="nav nav--solid" data-partial="nav"></nav>
 
+  <!-- Hero strip: 4 photos with title overlaid -->
+  <section class="pricing-hero" data-pricing-hero>
+    <div class="pricing-hero__strip" aria-hidden="true">
+      <img src="assets/galleries/weddings/wedding-kiss.jpg" alt="" loading="eager">
+      <img src="assets/galleries/weddings/champagne-spray.jpg" alt="" loading="eager">
+      <img src="assets/galleries/couples/rooftop-dip.jpg" alt="" loading="eager">
+      <img src="assets/galleries/families/mom-baby.jpg" alt="" loading="eager">
+    </div>
+    <div class="pricing-hero__overlay">
+      <p class="section__label reveal">Investment</p>
+      <h1 class="section__title reveal">Pricing &amp; <em>collections.</em></h1>
+      <p class="pricing-hero__sub reveal" data-pricing-intro>Every wedding, session, and story is different — pricing is tailored to match. Reach out with a few details and I'll send a full guide within 48 hours.</p>
+    </div>
+  </section>
+
+  <!-- Jump-to buttons -->
+  <nav class="pricing-jump reveal" aria-label="Pricing sections">
+    <a href="#weddings" class="pricing-jump__btn" data-pricing-jump="weddings">Weddings</a>
+    <a href="#elopements" class="pricing-jump__btn" data-pricing-jump="elopements">Elopements</a>
+    <a href="#portraits" class="pricing-jump__btn" data-pricing-jump="portraits">Portraits</a>
+  </nav>
+
   <section class="section pricing" data-pricing>
     <div class="container">
-      <div class="pricing__intro reveal">
-        <p class="section__label">Investment</p>
-        <h1 class="section__title">Pricing &amp; <em>collections.</em></h1>
-        <p data-pricing-intro>Every wedding, session, and story is different — pricing is tailored to match. Reach out with a few details and I'll send a full guide within 48 hours.</p>
-      </div>
-
       <div class="psections" data-pricing-sections>
         <!-- Rendered from /data/pricing.json -->
       </div>
     </div>
   </section>
 
-  <section class="section contact">
+  <!-- Sage CTA box -->
+  <section class="pricing-cta-wrap">
     <div class="container">
-      <h2 class="contact__title reveal">Ready to <em>talk details?</em></h2>
-      <p class="contact__sub reveal">Send over your date, location, and a few notes about what you're planning. I'll follow up with a full guide within 48 hours.</p>
-      <div class="contact__actions reveal">
-        <a href="inquire.html" class="btn btn--primary">Start an inquiry
+      <div class="pricing-cta reveal">
+        <h2 class="pricing-cta__title">Ready to <em>talk details?</em></h2>
+        <p class="pricing-cta__sub">Send over your date, location, and a few notes about what you're planning. I'll follow up with a full guide within 48 hours.</p>
+        <a href="inquire.html" class="pricing-cta__btn">Start an inquiry
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -48,6 +65,6 @@
   <footer class="footer" data-partial="footer"></footer>
 
   <script src="js/site.js?v=20260903a"></script>
-  <script src="js/pricing.js?v=20260901b"></script>
+  <script src="js/pricing.js?v=20260903a"></script>
 </body>
 </html>
