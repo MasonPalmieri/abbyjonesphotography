@@ -1,0 +1,33 @@
+{
+  "comingSoon": false,
+  "comingSoonMessage": "Love notes coming soon.",
+  "items": [
+    {
+      "quote": "From the moment we met Abby, we knew we were in great hands. She captured every moment so beautifully and made us feel comfortable and relaxed all day long. Her attention to detail and ability to preserve the emotions of the day are unmatched. We truly couldn't have picked a better photographer!",
+      "author": "Hannah & Matt",
+      "sessionType": "Wedding",
+      "photo": {
+        "src": "/assets/galleries/IMG_3747.jpeg",
+        "alt": ""
+      }
+    },
+    {
+      "quote": "I absolutely adore Abby! She did our engagement shoot and our wedding. Her energy is amazing. She is fun and she really listens to what you imagine for your day. I just loved working with her.",
+      "author": "Adaline and Ballah",
+      "sessionType": "Wedding",
+      "photo": {
+        "src": "/assets/galleries/IMG_5985.jpeg",
+        "alt": ""
+      }
+    },
+    {
+      "quote": "Abby captured our day perfectly. She made us feel like we were with a friend we'd known for years, cheering us on and making us feel completely comfortable. She paid attention to every detail and made sure to capture the specific photo styles I wanted. I couldn't recommend her enough!",
+      "author": "Ashley & Casey",
+      "sessionType": "Wedding",
+      "photo": {
+        "src": "/assets/galleries/IMG_4608.jpeg",
+        "alt": ""
+      }
+    }
+  ]
+}

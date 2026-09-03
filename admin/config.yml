@@ -370,7 +370,7 @@ collections:
     label: Testimonials
     files:
       - name: testimonials
-        label: Testimonials
+        label: Home page — Kind Words
         file: data/testimonials.json
         format: json
         fields:
@@ -381,6 +381,30 @@ collections:
             widget: list
             summary: '{{fields.author}}'
             hint: 'Each one becomes a slide in the scrollable carousel on the home page. The carousel auto-advances every 7 seconds and pauses on hover.'
+            fields:
+              - { name: quote, label: Quote, widget: text }
+              - { name: author, label: Author (e.g. "Sarah + Ben, 2026"), widget: string }
+              - { name: sessionType, label: Session type, widget: string, required: false }
+              - name: photo
+                label: 'Photo (optional, shown next to the quote)'
+                widget: object
+                required: false
+                collapsed: true
+                fields:
+                  - { name: src, label: Photo, widget: image, required: false }
+                  - { name: alt, label: Alt text (describe the photo), widget: string, required: false }
+      - name: testimonials_about
+        label: About page — Kind Words
+        file: data/testimonials-about.json
+        format: json
+        fields:
+          - { name: comingSoon, label: 'Show "coming soon" placeholder?', widget: boolean, default: true }
+          - { name: comingSoonMessage, label: Coming-soon message, widget: string, required: false }
+          - name: items
+            label: Testimonials
+            widget: list
+            summary: '{{fields.author}}'
+            hint: 'These show up in the carousel on the About page only. Edit them separately from the home page carousel.'
             fields:
               - { name: quote, label: Quote, widget: text }
               - { name: author, label: Author (e.g. "Sarah + Ben, 2026"), widget: string }

@@ -415,13 +415,28 @@
   async function wireTestimonials() {
     const mounts = document.querySelectorAll('[data-testimonials]');
     if (!mounts.length) return;
-    try {
-      const res = await fetch('/data/testimonials.json', { cache: 'no-cache' });
-      if (!res.ok) return;
-      const data = await res.json();
+    // Each mount can specify its own source via data-testimonials-source.
+    // Defaults to /data/testimonials.json. We fetch each unique source once.
+    const cache = new Map();
+    async function loadSource(url) {
+      if (cache.has(url)) return cache.get(url);
+      const p = (async () => {
+        try {
+          const res = await fetch(url, { cache: 'no-cache' });
+          if (!res.ok) return null;
+          return await res.json();
+        } catch (_) { return null; }
+      })();
+      cache.set(url, p);
+      return p;
+    }
+    await Promise.all(Array.from(mounts).map(async (mount) => {
+      const src = mount.getAttribute('data-testimonials-source') || '/data/testimonials.json';
+      const data = await loadSource(src);
+      if (!data) return; /* leave HTML fallback in place */
       const items = Array.isArray(data.items) ? data.items.filter((it) => it && it.quote) : [];
-      mounts.forEach((mount) => renderTestimonialsCarousel(mount, items, data));
-    } catch (_) { /* silent — fallback content stays */ }
+      renderTestimonialsCarousel(mount, items, data);
+    }));
   }
 
   function renderTestimonialsCarousel(mount, items, data) {
