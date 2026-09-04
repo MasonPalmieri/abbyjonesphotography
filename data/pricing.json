@@ -21,7 +21,7 @@
           "description": "",
           "includes": [
             "One photographer",
-            "Up to 6 hours of coverage",
+            "Up to 6 hours of wedding day coverage",
             "350+ professionally edited, high-resolution digital images",
             "Personalized wedding day timeline planning",
             "Complimentary engagement session",
@@ -54,8 +54,7 @@
           "featured": false,
           "description": "",
           "includes": [
-            "Up to 10 hours of coverage",
-            "Second photographer included",
+            "Second Photographer included",
             "Up to 10 hours of wedding day coverage",
             "700+ professionally edited, high-resolution digital images",
             "Personalized wedding day timeline planning",
@@ -118,14 +117,9 @@
       "name": "Portraits",
       "startingAt": "$275",
       "priceNote": "Sessions starting at",
-      "sub": "",
-      "heroImage": "",
-      "heroImageAlt": "",
-      "subImages": [
-        { "src": "/assets/galleries/couples/rooftop-dip.jpg", "label": "Couples / Engagements" },
-        { "src": "/assets/galleries/families/mom-baby.jpg", "label": "Families / Maternity" },
-        { "src": "/assets/galleries/IMG_5897.jpeg", "label": "Seniors / Milestones" }
-      ],
+      "sub": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
+      "heroImage": "/assets/galleries/IMG_5897.jpeg",
+      "heroImageAlt": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
       "description": "Whether you're celebrating something big or simply want to remember the season you're in, portrait sessions are a relaxed and intentional way to document the people and moments that matter most.",
       "tiers": [],
       "groups": [
