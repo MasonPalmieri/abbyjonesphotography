@@ -118,9 +118,14 @@
       "name": "Portraits",
       "startingAt": "$275",
       "priceNote": "Sessions starting at",
-      "sub": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
-      "heroImage": "/assets/galleries/IMG_5897.jpeg",
-      "heroImageAlt": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
+      "sub": "",
+      "heroImage": "",
+      "heroImageAlt": "",
+      "subImages": [
+        { "src": "/assets/galleries/couples/rooftop-dip.jpg", "label": "Couples / Engagements" },
+        { "src": "/assets/galleries/families/mom-baby.jpg", "label": "Families / Maternity" },
+        { "src": "/assets/galleries/IMG_5897.jpeg", "label": "Seniors / Milestones" }
+      ],
       "description": "Whether you're celebrating something big or simply want to remember the season you're in, portrait sessions are a relaxed and intentional way to document the people and moments that matter most.",
       "tiers": [],
       "groups": [
