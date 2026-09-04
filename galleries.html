@@ -20,51 +20,71 @@
 
   <nav class="nav nav--solid" data-partial="nav"></nav>
 
-  <section class="section section--tight">
+  <section class="section section--tight galleries-intro">
     <div class="container text-center">
-      <p class="section__label reveal">Recent Work</p>
-      <h1 class="section__title reveal">A collection of <em>recent stories.</em></h1>
-      <p class="reveal" style="max-width:52ch; margin:24px auto 0; color:var(--ink-soft); line-height:1.75;">
-        A look at some of the weddings, elopements, and sessions I've had the honor of documenting.
+      <p class="section__label reveal">Galleries</p>
+      <h1 class="section__title reveal">A collection of <em>moments.</em></h1>
+      <p class="reveal galleries-intro__sub">
+        Every story is unique, but they all deserve to be remembered.<br>
+        Explore the galleries below to see a few of my favorite moments.
       </p>
     </div>
   </section>
 
   <section class="section section--tight" style="padding-top:0;">
     <div class="container">
-      <div class="collections__grid collections__grid--two">
-        <a href="galleries/weddings.html" class="collection reveal">
-          <img src="assets/galleries/weddings/wedding-dogs.jpg" alt="Weddings and elopements collection cover">
-          <div class="collection__caption">
-            <p class="collection__label">Collection 01</p>
-            <h2 class="collection__title">Weddings &amp; Elopements</h2>
+      <div class="gallery-tiles">
+        <a href="galleries/weddings.html" class="gtile reveal">
+          <div class="gtile__img">
+            <img src="assets/galleries/weddings/wedding-dogs.jpg" alt="Weddings and elopements collection cover">
+          </div>
+          <div class="gtile__caption">
+            <h2 class="gtile__title">Weddings &amp; Elopements</h2>
+            <p class="gtile__sub">Timeless Love Stories</p>
+            <span class="gtile__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </a>
-        <a href="galleries/sessions.html" class="collection reveal">
-          <img src="assets/galleries/couples/rooftop-dip.jpg" alt="Sessions collection cover — couples, families, seniors">
-          <div class="collection__caption">
-            <p class="collection__label">Collection 02</p>
-            <h2 class="collection__title">Sessions</h2>
+        <a href="galleries/couples.html" class="gtile reveal">
+          <div class="gtile__img">
+            <img src="assets/galleries/couples/rooftop-dip.jpg" alt="Couples and engagements collection cover">
+          </div>
+          <div class="gtile__caption">
+            <h2 class="gtile__title">Couples &amp; Engagements</h2>
+            <p class="gtile__sub">Celebrating Connection</p>
+            <span class="gtile__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="galleries/families.html" class="gtile reveal">
+          <div class="gtile__img">
+            <img src="assets/galleries/families/mom-baby.jpg" alt="Portraits collection cover — families, maternity, and more">
+          </div>
+          <div class="gtile__caption">
+            <h2 class="gtile__title">Portraits</h2>
+            <p class="gtile__sub">Families, Maternity &amp; More</p>
+            <span class="gtile__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section contact">
-    <div class="container">
-      <h2 class="contact__title reveal">Ready to <em>tell yours?</em></h2>
-      <p class="contact__sub reveal">Every story starts with a conversation.</p>
-      <div class="contact__actions reveal">
-        <a href="inquire.html" class="btn btn--primary">Start an inquiry
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+  <section class="section galleries-outro">
+    <div class="container text-center">
+      <p class="galleries-outro__text reveal">Don't see what you're looking for? Let's create something beautiful together.</p>
+      <a href="inquire.html" class="galleries-outro__btn reveal">Inquire here
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
   <footer class="footer" data-partial="footer"></footer>
 
-  <script src="js/site.js?v=20260903a"></script>
+  <script src="js/site.js?v=20260903b"></script>
 </body>
 </html>
