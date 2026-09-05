@@ -34,9 +34,9 @@
   <section class="section section--tight" style="padding-top:0; padding-bottom:0;">
     <div class="container">
       <div class="gallery-tiles">
-        <a href="galleries/weddings.html" class="gtile reveal">
+        <a href="galleries/weddings.html" class="gtile reveal" data-gtile="weddings">
           <div class="gtile__img">
-            <img src="assets/galleries/weddings/wedding-dogs.jpg" alt="Weddings and elopements collection cover">
+            <img src="assets/galleries/weddings/wedding-dogs.jpg" alt="Weddings and elopements collection cover" data-gtile-img>
           </div>
           <div class="gtile__caption">
             <h2 class="gtile__title">Weddings &amp; Elopements</h2>
@@ -46,9 +46,9 @@
             </span>
           </div>
         </a>
-        <a href="galleries/couples.html" class="gtile reveal">
+        <a href="galleries/couples.html" class="gtile reveal" data-gtile="couples">
           <div class="gtile__img">
-            <img src="assets/galleries/couples/rooftop-dip.jpg" alt="Couples and engagements collection cover">
+            <img src="assets/galleries/couples/rooftop-dip.jpg" alt="Couples and engagements collection cover" data-gtile-img>
           </div>
           <div class="gtile__caption">
             <h2 class="gtile__title">Couples &amp; Engagements</h2>
@@ -58,9 +58,9 @@
             </span>
           </div>
         </a>
-        <a href="galleries/families.html" class="gtile reveal">
+        <a href="galleries/families.html" class="gtile reveal" data-gtile="families">
           <div class="gtile__img">
-            <img src="assets/galleries/families/mom-baby.jpg" alt="Portraits collection cover — families, maternity, and more">
+            <img src="assets/galleries/families/mom-baby.jpg" alt="Portraits collection cover — families, maternity, and more" data-gtile-img>
           </div>
           <div class="gtile__caption">
             <h2 class="gtile__title">Portraits</h2>
@@ -86,5 +86,26 @@
   <footer class="footer" data-partial="footer"></footer>
 
   <script src="js/site.js?v=20260903b"></script>
+  <script>
+    // Pull each tile's cover image from its gallery JSON so Abby can change it via CMS.
+    (function () {
+      document.querySelectorAll('[data-gtile]').forEach(function (tile) {
+        var slug = tile.getAttribute('data-gtile');
+        var img = tile.querySelector('[data-gtile-img]');
+        if (!slug || !img) return;
+        fetch('/data/galleries/' + slug + '.json', { cache: 'no-cache' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (data) {
+            if (!data) return;
+            if (data.cover) {
+              img.src = data.cover;
+            } else if (Array.isArray(data.images) && data.images.length && data.images[0].src) {
+              img.src = data.images[0].src;
+            }
+          })
+          .catch(function () {});
+      });
+    })();
+  </script>
 </body>
 </html>
