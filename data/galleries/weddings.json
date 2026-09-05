@@ -69,13 +69,31 @@
       "src": "/assets/galleries/IMG_0299.jpeg",
       "alt": "Putting shoes on",
       "caption": "",
-      "featured": true
+      "featured": false
     },
     {
       "src": "/assets/galleries/IMG_7847.jpeg",
       "alt": "getting makeup done",
       "caption": "",
       "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_3738.jpeg",
+      "alt": "putting earrings in",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5448.jpeg",
+      "alt": "veil swooped",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_5431.jpeg",
+      "alt": "under veil shot",
+      "caption": "",
+      "featured": false
     }
   ]
 }
