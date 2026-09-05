@@ -75,7 +75,7 @@
       "src": "/assets/galleries/IMG_7847.jpeg",
       "alt": "getting makeup done",
       "caption": "",
-      "featured": true
+      "featured": false
     },
     {
       "src": "/assets/galleries/IMG_3738.jpeg",
@@ -92,6 +92,42 @@
     {
       "src": "/assets/galleries/IMG_5431.jpeg",
       "alt": "under veil shot",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_0427.jpeg",
+      "alt": "looking at eachother",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_4310.jpeg",
+      "alt": "nuzzle",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_4608.jpeg",
+      "alt": "horse stable",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_3738.jpeg",
+      "alt": "putting in earring",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5937.jpeg",
+      "alt": "in front of car",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5985.jpeg",
+      "alt": "kissing",
       "caption": "",
       "featured": false
     }
