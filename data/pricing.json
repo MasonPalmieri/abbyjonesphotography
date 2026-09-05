@@ -1,5 +1,5 @@
 {
-  "intro": "Every wedding, session, and story is different — pricing is tailored to match. Here's a look at what's included, with a full guide sent upon inquiry.",
+  "intro": "Every wedding, session, and story is different \u2014 pricing is tailored to match. Here's a look at what's included, with a full guide sent upon inquiry.",
   "sections": [
     {
       "id": "weddings",
@@ -30,7 +30,7 @@
           ]
         },
         {
-          "label": "Collection 02 · Most Popular",
+          "label": "Collection 02 \u00b7 Most Popular",
           "name": "The Signature",
           "price": "$3,000",
           "priceNote": "",
@@ -117,9 +117,9 @@
       "name": "Portraits",
       "startingAt": "$275",
       "priceNote": "Sessions starting at",
-      "sub": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
+      "sub": "Couples \u00b7 Engagements \u00b7 Maternity \u00b7 Families \u00b7 Seniors \u00b7 Milestones",
       "heroImage": "/assets/galleries/IMG_5897.jpeg",
-      "heroImageAlt": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
+      "heroImageAlt": "Couples \u00b7 Engagements \u00b7 Maternity \u00b7 Families \u00b7 Seniors \u00b7 Milestones",
       "description": "Whether you're celebrating something big or simply want to remember the season you're in, portrait sessions are a relaxed and intentional way to document the people and moments that matter most.",
       "tiers": [],
       "groups": [
@@ -138,7 +138,21 @@
       "cta": {
         "label": "Inquire here",
         "href": "/inquire.html"
-      }
+      },
+      "subImages": [
+        {
+          "src": "/assets/galleries/IMG_5897.jpeg",
+          "label": "Couples & Engagements"
+        },
+        {
+          "src": "/assets/galleries/families/mom-baby.jpg",
+          "label": "Families & Maternity"
+        },
+        {
+          "src": "/assets/galleries/couples/rooftop-dip.jpg",
+          "label": "Seniors & Milestones"
+        }
+      ]
     }
   ]
 }
