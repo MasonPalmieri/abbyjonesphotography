@@ -12,6 +12,12 @@
       "featured": true
     },
     {
+      "src": "/assets/galleries/IMG_6072.jpeg",
+      "alt": "bride laying on grooms leg",
+      "caption": "",
+      "featured": true
+    },
+    {
       "src": "/assets/galleries/weddings/bride-daughter.jpg",
       "alt": "Bride with a young child in her wedding dress",
       "caption": "",
@@ -22,6 +28,12 @@
       "alt": "Bridesmaids spraying champagne with bride on wedding morning",
       "caption": "",
       "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_6063.jpeg",
+      "alt": "bride under veil",
+      "caption": "",
+      "featured": true
     },
     {
       "src": "/assets/galleries/weddings/bridesmaids-walking.jpg",
@@ -48,32 +60,20 @@
       "featured": false
     },
     {
-      "src": "/assets/galleries/IMG_0299.jpeg",
-      "alt": "Putting shoes on",
-      "caption": "",
-      "featured": true
-    },
-    {
-      "src": "/assets/galleries/IMG_6063.jpeg",
-      "alt": "bride under veil",
-      "caption": "",
-      "featured": true
-    },
-    {
       "src": "/assets/galleries/IMG_7867.jpeg",
       "alt": "girls hanging",
       "caption": "",
       "featured": true
     },
     {
-      "src": "/assets/galleries/IMG_7847.jpeg",
-      "alt": "getting makeup done",
+      "src": "/assets/galleries/IMG_0299.jpeg",
+      "alt": "Putting shoes on",
       "caption": "",
       "featured": true
     },
     {
-      "src": "/assets/galleries/IMG_6072.jpeg",
-      "alt": "bride laying on grooms leg",
+      "src": "/assets/galleries/IMG_7847.jpeg",
+      "alt": "getting makeup done",
       "caption": "",
       "featured": true
     }
