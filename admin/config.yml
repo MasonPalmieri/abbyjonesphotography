@@ -284,6 +284,16 @@ collections:
               - { name: sub, label: Sub-tagline (optional), widget: string, required: false }
               - { name: heroImage, label: Hero image (shown at top of this section), widget: image, required: false }
               - { name: heroImageAlt, label: Hero image alt text, widget: string, required: false }
+              - name: subImages
+                label: 'Sub-images (small photo row shown under the hero, e.g. Portraits: Couples / Families / Seniors)'
+                widget: list
+                required: false
+                summary: '{{fields.caption}}'
+                hint: 'Leave empty to hide the small photo row. Best with exactly 3.'
+                fields:
+                  - { name: src, label: Image, widget: image }
+                  - { name: caption, label: 'Caption under photo (e.g. "Couples & Engagements")', widget: string, required: false }
+                  - { name: alt, label: 'Alt text (for accessibility)', widget: string, required: false }
               - { name: description, label: Description, widget: text, required: false }
               - name: tiers
                 label: 'Collection tiers (side-by-side cards, e.g. Intimate / Signature / Full Story)'
