@@ -1,5 +1,11 @@
 {
   "intro": "Every wedding, session, and story is different \u2014 pricing is tailored to match. Here's a look at what's included, with a full guide sent upon inquiry.",
+  "heroStrip": [
+    { "image": "/assets/galleries/weddings/wedding-kiss.jpg", "alt": "" },
+    { "image": "/assets/galleries/weddings/champagne-spray.jpg", "alt": "" },
+    { "image": "/assets/galleries/couples/rooftop-dip.jpg", "alt": "" },
+    { "image": "/assets/galleries/families/mom-baby.jpg", "alt": "" }
+  ],
   "sections": [
     {
       "id": "weddings",

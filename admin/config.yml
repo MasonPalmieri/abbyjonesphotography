@@ -261,6 +261,16 @@ collections:
         preview_path: /pricing.html
         fields:
           - { name: intro, label: Intro paragraph, widget: text }
+          - name: heroStrip
+            label: 'Top-of-page photo strip (4 photos)'
+            widget: list
+            required: false
+            min: 1
+            max: 6
+            summary: '{{fields.image}}'
+            fields:
+              - { name: image, label: Photo, widget: image, media_folder: '/media/pricing', public_folder: '/media/pricing' }
+              - { name: alt, label: 'Photo caption (for screen readers)', widget: string, required: false }
           - name: sections
             label: Pricing sections
             widget: list

@@ -187,6 +187,21 @@
         if (introEl) introEl.textContent = data.intro;
       }
 
+      // Top-of-page hero strip photos (editable in the CMS under Pricing Page → Top-of-page photo strip)
+      const heroStrip = document.querySelector('[data-pricing-hero-strip]');
+      if (heroStrip && Array.isArray(data.heroStrip) && data.heroStrip.length) {
+        heroStrip.innerHTML = '';
+        data.heroStrip.forEach((item) => {
+          if (!item || !item.image) return;
+          const img = document.createElement('img');
+          const src = (window.AJP && window.AJP.url) ? window.AJP.url(item.image) : item.image;
+          img.src = src;
+          img.alt = item.alt || '';
+          img.loading = 'eager';
+          heroStrip.appendChild(img);
+        });
+      }
+
       const sectionsMount = mount.querySelector('[data-pricing-sections]');
       if (sectionsMount && Array.isArray(data.sections)) {
         sectionsMount.innerHTML = '';
