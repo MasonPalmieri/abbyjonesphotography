@@ -2,15 +2,74 @@
   "slug": "weddings",
   "title": "Weddings",
   "subtitle": "Full-day storytelling from the first quiet morning moments to the last sparkler on the dance floor.",
-  "cover": "/assets/galleries/weddings/wedding-dogs.jpg",
+  "cover": "/assets/galleries/IMG_6072.jpeg",
   "emptyMessage": "New wedding galleries will be added here soon.",
   "images": [
-    { "src": "/assets/galleries/weddings/wedding-dogs.jpg", "alt": "Bride and groom with their dogs at an outdoor wedding", "featured": true },
-    { "src": "/assets/galleries/weddings/bride-daughter.jpg", "alt": "Bride with a young child in her wedding dress", "featured": true },
-    { "src": "/assets/galleries/weddings/champagne-spray.jpg", "alt": "Bridesmaids spraying champagne with bride on wedding morning", "featured": true },
-    { "src": "/assets/galleries/weddings/bridesmaids-walking.jpg", "alt": "Bride and bridesmaids walking together in matching black outfits" },
-    { "src": "/assets/galleries/weddings/couple-stairs.jpg", "alt": "Wedding couple posed on grand stairs with white florals" },
-    { "src": "/assets/galleries/weddings/groomsmen.jpg", "alt": "Groomsmen lounging in tuxedos on Adirondack chairs" },
-    { "src": "/assets/galleries/weddings/wedding-kiss.jpg", "alt": "Couple kissing during bubble send-off after wedding ceremony", "featured": true }
+    {
+      "src": "/assets/galleries/weddings/wedding-dogs.jpg",
+      "alt": "Bride and groom with their dogs at an outdoor wedding",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/weddings/bride-daughter.jpg",
+      "alt": "Bride with a young child in her wedding dress",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/weddings/champagne-spray.jpg",
+      "alt": "Bridesmaids spraying champagne with bride on wedding morning",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/weddings/bridesmaids-walking.jpg",
+      "alt": "Bride and bridesmaids walking together in matching black outfits",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/couple-stairs.jpg",
+      "alt": "Wedding couple posed on grand stairs with white florals",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/groomsmen.jpg",
+      "alt": "Groomsmen lounging in tuxedos on Adirondack chairs",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/weddings/wedding-kiss.jpg",
+      "alt": "Couple kissing during bubble send-off after wedding ceremony",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_0299.jpeg",
+      "alt": "Putting shoes on",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_6063.jpeg",
+      "alt": "bride under veil",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_7867.jpeg",
+      "alt": "girls hanging",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_7847.jpeg",
+      "alt": "getting makeup done",
+      "caption": "",
+      "featured": true
+    }
   ]
 }
