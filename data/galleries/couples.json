@@ -2,9 +2,38 @@
   "slug": "couples",
   "title": "Couples",
   "subtitle": "Engagements, anniversaries, and just-because sessions. Relaxed, golden-hour energy in a location that feels like the two of you.",
-  "cover": "/assets/galleries/couples/rooftop-dip.jpg",
+  "cover": "/assets/galleries/IMG_5897.jpeg",
   "emptyMessage": "New couples sessions will be added here soon.",
   "images": [
-    { "src": "/assets/galleries/couples/rooftop-dip.jpg", "alt": "Couple in a sunset dip pose on a rooftop", "featured": true }
+    {
+      "src": "/assets/galleries/IMG_8627.jpeg",
+      "alt": "Proposal",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_5691.jpeg",
+      "alt": "kissing in the elevator",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5902.jpeg",
+      "alt": "cheersing",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_6059.jpeg",
+      "alt": "sitting on the steps",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5979.jpeg",
+      "alt": "running in the field",
+      "caption": "",
+      "featured": false
+    }
   ]
 }
