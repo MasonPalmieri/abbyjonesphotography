@@ -321,7 +321,7 @@ collections:
       Mark up to 6 as "Featured" to surface on the home page.
     files:
       - name: weddings
-        label: Weddings
+        label: Weddings & Elopements
         file: data/galleries/weddings.json
         format: json
         preview_path: /galleries/weddings.html
@@ -342,25 +342,46 @@ collections:
               - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
               - { name: featured, label: 'Featured on home page?', widget: boolean, default: false, required: false }
 
-      - name: sessions
-        label: Sessions (Couples, Families, Maternity, Seniors, Milestones)
-        file: data/galleries/sessions.json
+      - name: couples
+        label: Couples & Engagements
+        file: data/galleries/couples.json
         format: json
-        preview_path: /galleries/sessions.html
+        preview_path: /galleries/couples.html
         fields:
-          - { name: slug, label: Slug, widget: hidden, default: sessions }
+          - { name: slug, label: Slug, widget: hidden, default: couples }
           - { name: title, label: Title, widget: string }
           - { name: subtitle, label: Subtitle, widget: text, required: false }
-          - { name: cover, label: Cover image, widget: image, required: false }
+          - { name: cover, label: Cover image (used on Galleries index), widget: image, required: false }
           - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
           - name: images
             label: Photos
             widget: list
             summary: '{{fields.alt}}'
             fields:
-              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/sessions' }
-              - { name: alt, label: Alt text, widget: string }
-              - { name: caption, label: Caption, widget: string, required: false }
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/couples' }
+              - { name: alt, label: Alt text (describe the photo for SEO + accessibility), widget: string }
+              - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
+              - { name: featured, label: 'Featured on home page?', widget: boolean, default: false, required: false }
+
+      - name: families
+        label: Portraits (Families, Maternity, Seniors, Milestones)
+        file: data/galleries/families.json
+        format: json
+        preview_path: /galleries/families.html
+        fields:
+          - { name: slug, label: Slug, widget: hidden, default: families }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text, required: false }
+          - { name: cover, label: Cover image (used on Galleries index), widget: image, required: false }
+          - { name: emptyMessage, label: Empty-state message, widget: string, required: false }
+          - name: images
+            label: Photos
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - { name: src, label: Image, widget: image, media_folder: '/assets/galleries/families' }
+              - { name: alt, label: Alt text (describe the photo for SEO + accessibility), widget: string }
+              - { name: caption, label: Caption (optional, shown in lightbox), widget: string, required: false }
               - { name: featured, label: 'Featured on home page?', widget: boolean, default: false, required: false }
 
   # ============================================================
