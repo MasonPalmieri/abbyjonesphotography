@@ -2,9 +2,56 @@
   "slug": "families",
   "title": "Families",
   "subtitle": "In-home, in-backyard, or wherever your story is happening right now — for new babies, growing families, and the chapters worth holding onto.",
-  "cover": "/assets/galleries/families/mom-baby.jpg",
+  "cover": "/assets/galleries/IMG_5839.jpeg",
   "emptyMessage": "New family sessions will be added here soon.",
   "images": [
-    { "src": "/assets/galleries/families/mom-baby.jpg", "alt": "Mother and baby in a tender family portrait", "featured": true }
+    {
+      "src": "/assets/galleries/families/mom-baby.jpg",
+      "alt": "Mother and baby in a tender family portrait",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_5840.jpeg",
+      "alt": "sitting holding sonogram",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5879.jpeg",
+      "alt": "loving in the kitchen",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5837.jpeg",
+      "alt": "mama and her belly",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5833.jpeg",
+      "alt": "belly photo",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5880.jpeg",
+      "alt": "sitting on floor holding belly",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5842.jpeg",
+      "alt": "looking at sonogram",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5832.jpeg",
+      "alt": "sitting on blanket holding belly",
+      "caption": "",
+      "featured": false
+    }
   ]
 }
