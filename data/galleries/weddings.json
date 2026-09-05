@@ -15,13 +15,13 @@
       "src": "/assets/galleries/weddings/bride-daughter.jpg",
       "alt": "Bride with a young child in her wedding dress",
       "caption": "",
-      "featured": true
+      "featured": false
     },
     {
       "src": "/assets/galleries/weddings/champagne-spray.jpg",
       "alt": "Bridesmaids spraying champagne with bride on wedding morning",
       "caption": "",
-      "featured": true
+      "featured": false
     },
     {
       "src": "/assets/galleries/weddings/bridesmaids-walking.jpg",
@@ -39,7 +39,7 @@
       "src": "/assets/galleries/weddings/groomsmen.jpg",
       "alt": "Groomsmen lounging in tuxedos on Adirondack chairs",
       "caption": "",
-      "featured": true
+      "featured": false
     },
     {
       "src": "/assets/galleries/weddings/wedding-kiss.jpg",
@@ -68,6 +68,12 @@
     {
       "src": "/assets/galleries/IMG_7847.jpeg",
       "alt": "getting makeup done",
+      "caption": "",
+      "featured": true
+    },
+    {
+      "src": "/assets/galleries/IMG_6072.jpeg",
+      "alt": "bride laying on grooms leg",
       "caption": "",
       "featured": true
     }
