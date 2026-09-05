@@ -1,10 +1,22 @@
 {
-  "intro": "Every wedding, session, and story is different \u2014 pricing is tailored to match. Here's a look at what's included, with a full guide sent upon inquiry.",
+  "intro": "Every wedding, session, and story is different — pricing is tailored to match. Here's a look at what's included, with a full guide sent upon inquiry.",
   "heroStrip": [
-    { "image": "/assets/galleries/weddings/wedding-kiss.jpg", "alt": "" },
-    { "image": "/assets/galleries/weddings/champagne-spray.jpg", "alt": "" },
-    { "image": "/assets/galleries/couples/rooftop-dip.jpg", "alt": "" },
-    { "image": "/assets/galleries/families/mom-baby.jpg", "alt": "" }
+    {
+      "image": "/assets/galleries/IMG_5985.jpeg",
+      "alt": ""
+    },
+    {
+      "image": "/assets/galleries/IMG_3747.jpeg",
+      "alt": ""
+    },
+    {
+      "image": "/assets/galleries/IMG_6063.jpeg",
+      "alt": ""
+    },
+    {
+      "image": "/assets/galleries/couples/rooftop-dip.jpg",
+      "alt": ""
+    }
   ],
   "sections": [
     {
@@ -36,7 +48,7 @@
           ]
         },
         {
-          "label": "Collection 02 \u00b7 Most Popular",
+          "label": "Collection 02 · Most Popular",
           "name": "The Signature",
           "price": "$3,000",
           "priceNote": "",
@@ -123,9 +135,9 @@
       "name": "Portraits",
       "startingAt": "$275",
       "priceNote": "Sessions starting at",
-      "sub": "Couples \u00b7 Engagements \u00b7 Maternity \u00b7 Families \u00b7 Seniors \u00b7 Milestones",
+      "sub": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
       "heroImage": "/assets/galleries/IMG_5897.jpeg",
-      "heroImageAlt": "Couples \u00b7 Engagements \u00b7 Maternity \u00b7 Families \u00b7 Seniors \u00b7 Milestones",
+      "heroImageAlt": "Couples · Engagements · Maternity · Families · Seniors · Milestones",
       "description": "Whether you're celebrating something big or simply want to remember the season you're in, portrait sessions are a relaxed and intentional way to document the people and moments that matter most.",
       "tiers": [],
       "groups": [
@@ -147,16 +159,16 @@
       },
       "subImages": [
         {
-          "src": "/assets/galleries/IMG_5897.jpeg",
-          "label": "Couples & Engagements"
+          "label": "Couples & Engagements",
+          "src": "/assets/galleries/IMG_5897.jpeg"
         },
         {
-          "src": "/assets/galleries/families/mom-baby.jpg",
-          "label": "Families & Maternity"
+          "label": "Families & Maternity",
+          "src": "/assets/galleries/families/mom-baby.jpg"
         },
         {
-          "src": "/assets/galleries/couples/rooftop-dip.jpg",
-          "label": "Seniors & Milestones"
+          "label": "Seniors & Milestones",
+          "src": "/assets/galleries/couples/rooftop-dip.jpg"
         }
       ]
     }
