@@ -48,12 +48,6 @@
       "featured": false
     },
     {
-      "src": "/assets/galleries/weddings/wedding-kiss.jpg",
-      "alt": "Couple kissing during bubble send-off after wedding ceremony",
-      "caption": "",
-      "featured": false
-    },
-    {
       "src": "/assets/galleries/IMG_7867.jpeg",
       "alt": "girls hanging",
       "caption": "",
@@ -116,6 +110,12 @@
     {
       "src": "/assets/galleries/IMG_5985.jpeg",
       "alt": "kissing",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/wedding-kiss.jpg",
+      "alt": "Couple kissing during bubble send-off after wedding ceremony",
       "caption": "",
       "featured": false
     }
