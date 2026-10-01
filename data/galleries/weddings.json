@@ -72,22 +72,16 @@
       "featured": false
     },
     {
-      "src": "/assets/galleries/IMG_5448.jpeg",
-      "alt": "veil swooped",
-      "caption": "",
-      "featured": true
-    },
-    {
-      "src": "/assets/galleries/IMG_5431.jpeg",
-      "alt": "under veil shot",
-      "caption": "",
-      "featured": false
-    },
-    {
       "src": "/assets/galleries/IMG_0427.jpeg",
       "alt": "looking at eachother",
       "caption": "",
       "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5448.jpeg",
+      "alt": "veil swooped",
+      "caption": "",
+      "featured": true
     },
     {
       "src": "/assets/galleries/IMG_4310.jpeg",
@@ -116,6 +110,72 @@
     {
       "src": "/assets/galleries/weddings/wedding-kiss.jpg",
       "alt": "Couple kissing during bubble send-off after wedding ceremony",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/IMG_5431.jpeg",
+      "alt": "under veil shot",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/CC5CF116-758F-4C24-B5F4-01D298BFF01C_1_105_c.jpeg",
+      "alt": "details",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/F9DF113A-FC43-4A42-B0D6-D3AABE68B0D1_1_105_c.jpeg",
+      "alt": "bridal party",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/CA265249-2672-4CB0-878B-CCE8B0E94DFF_1_105_c.jpeg",
+      "alt": "details",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/B3964A0C-A92C-4B87-A69B-2669C01C7886_1_105_c.jpeg",
+      "alt": "details",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/5A63C2FD-6EAB-44D5-87EF-542EFEF71229_1_105_c.jpeg",
+      "alt": "throw groom in air",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/BF8499D5-BCDE-42C0-BAE2-8137F8B0F801_1_105_c.jpeg",
+      "alt": "putting on shoe",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/D42AB012-1ECC-4061-BA00-C5781A66BADD_1_105_c.jpeg",
+      "alt": "dancing",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/DACA76CA-B758-4807-97BF-CEF2B8CB3BE8_1_105_c.jpeg",
+      "alt": "driving away",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/E23A0A5F-9BB9-4D6C-9A82-9C955A672FAC_1_105_c.jpeg",
+      "alt": "couple on course",
+      "caption": "",
+      "featured": false
+    },
+    {
+      "src": "/assets/galleries/weddings/3844FE67-5229-4889-A6F7-713F6EE49549_1_105_c.jpeg",
+      "alt": "groom fixing bow tie",
       "caption": "",
       "featured": false
     }
