@@ -93,13 +93,13 @@
       "src": "/assets/galleries/IMG_4608.jpeg",
       "alt": "horse stable",
       "caption": "",
-      "featured": false
+      "featured": true
     },
     {
       "src": "/assets/galleries/IMG_5937.jpeg",
       "alt": "in front of car",
       "caption": "",
-      "featured": false
+      "featured": true
     },
     {
       "src": "/assets/galleries/IMG_5985.jpeg",
@@ -123,7 +123,7 @@
       "src": "/assets/galleries/weddings/CC5CF116-758F-4C24-B5F4-01D298BFF01C_1_105_c.jpeg",
       "alt": "details",
       "caption": "",
-      "featured": false
+      "featured": true
     },
     {
       "src": "/assets/galleries/weddings/F9DF113A-FC43-4A42-B0D6-D3AABE68B0D1_1_105_c.jpeg",
@@ -153,7 +153,7 @@
       "src": "/assets/galleries/weddings/BF8499D5-BCDE-42C0-BAE2-8137F8B0F801_1_105_c.jpeg",
       "alt": "putting on shoe",
       "caption": "",
-      "featured": false
+      "featured": true
     },
     {
       "src": "/assets/galleries/weddings/D42AB012-1ECC-4061-BA00-C5781A66BADD_1_105_c.jpeg",
